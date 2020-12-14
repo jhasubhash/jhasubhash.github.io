@@ -15,6 +15,11 @@
   color: white;
 }
 
+body::after{
+  position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+  content:url('../assets/tenor1.gif');
+}
+
 .App-link {
   color: #61dafb;
 }

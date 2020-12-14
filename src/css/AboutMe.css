@@ -17,8 +17,9 @@
     text-align: left;
     padding:10px;
     background-color: green;
-    background-image: url('../assets/tenor.gif');
+    background-image: url('../assets/tenor1.gif');
     background-blend-mode: color-burn;
+    background-size: contain;
     font-family: monospace;
     color: rgb(3, 207, 3);
     text-decoration: none;
