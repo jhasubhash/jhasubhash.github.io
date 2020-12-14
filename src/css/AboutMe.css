@@ -1,18 +1,8 @@
-@media only screen and (max-width: 500px) {
-    .aboutMeBlock {
-        width: 350px;
-    }
-}
-
-@media only screen and (min-width: 500px) {
-    .aboutMeBlock {
-      width: 400px;
-    }
-}
 
 .aboutMeBlock {
+    height: 100%;
+    width: 100%;
     position: relative;
-    height: 120px;
     font-size: 14px;
     text-align: left;
     padding:10px;

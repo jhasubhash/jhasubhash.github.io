@@ -46,20 +46,6 @@ body::after{
     height: 300px;
   }
 
-
-  .textBlock {
-    position: relative;
-    height: 120px;
-    width: 350px;
-    font-size: 14px;
-    text-align: left;
-    padding:10px;
-    background-color: #2e2e2d;
-    box-shadow: inset 3px 3px 2px rgba(0, 0, 0, 0.54),
-    inset -3px -3px 2px rgba(255, 255, 255, 0.14);
-    overflow: scroll;
-  }
-
   .picBlock {
     position: relative;
     height: fit-content;
@@ -70,7 +56,7 @@ body::after{
   }
 
   .container {
-    height: 120px;
+    height: 140px;
     width: 350px;
   }
 }
@@ -89,19 +75,6 @@ body::after{
     height: 400px;
   }
 
-  .textBlock {
-    position: relative;
-    height: 120px;
-    width: 400px;
-    font-size: 14px;
-    text-align: left;
-    padding:10px;
-    background-color: #2e2e2d;
-    box-shadow: inset 3px 3px 2px rgba(0, 0, 0, 0.54),
-    inset -3px -3px 2px rgba(255, 255, 255, 0.14);
-    overflow: scroll;
-  }
-
   .picBlock {
     position: relative;
     height: fit-content;
@@ -112,7 +85,7 @@ body::after{
   }
 
   .container {
-    height: 120px;
+    height: 160px;
     width: 400px;
   }
 
@@ -120,6 +93,22 @@ body::after{
     transform: scale(1.2); 
     color: rgb(255, 200, 62);
   }
+}
+.textBlock {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 14px;
+  text-align: left;
+  padding:10px;
+  background-color: #2e2e2d;
+  box-shadow: inset 3px 3px 2px rgba(0, 0, 0, 0.54),
+  inset -3px -3px 2px rgba(255, 255, 255, 0.14);
+  overflow: scroll;
+}
+
+.container {
+  overflow: hidden;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -142,29 +131,6 @@ div.instagram_gallery > a > img{
   height: 120px;
   margin: 10px;
   box-shadow: 7px 6px 8px 1px rgba(0, 0, 0, 0.44); 
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 50%;
-  font-size: medium;
-  border-radius: 5px; /* 5px rounded corners */
-  position: fixed;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-  padding: 16px 16px;
-}
-
-.container {
-  z-index: 1;
 }
 
 .iconList {

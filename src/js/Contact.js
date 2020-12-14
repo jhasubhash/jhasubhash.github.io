@@ -9,6 +9,9 @@ import lnkdinLogo from '../assets/lnkdin.png';
 import mailLogo from '../assets/mail.png';
 import rssLogo from '../assets/rss.png';
 import instaLogo from '../assets/insta.png';
+import { isMobileOnly } from "react-device-detect";
+
+const height = isMobileOnly ? 140: 160;
 
 export const Contact = () => {
     React.useEffect(() => {
@@ -25,7 +28,7 @@ export const Contact = () => {
 
     return (
         <div id="tagCloud">
-            <canvas width="300" height="160" id="myCanvas">
+            <canvas width="300" height={height} id="myCanvas">
             <p>Canvas not supported !!!</p>
             <ul>
                 <li><a href="https://www.facebook.com/subhash.jha.333" target="_blank" rel="noreferrer" ><img src={fbLogo} width="40px" height="40px" alt="Facebook"/></a></li>

@@ -36,10 +36,8 @@ export const Photos = () => {
         })()
     }, []);
     return (
-        <div>
         <div className="picBlock" ref={picListRef}>
         <div className="loader">Loading...</div>
-        </div>
         </div>
     )
 }
