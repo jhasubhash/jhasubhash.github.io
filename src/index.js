@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './css/index.css';
+import App from './js/App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserHistory } from "history";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+var hist = createBrowserHistory();
 ReactDOM.render(
+  <Router basename={process.env.PUBLIC_URL} history={hist}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  <Switch>
+      <Route path="/tree" component={() => { 
+        window.location.href = 'https://jhasubhash.github.io/tree/'; 
+        return null;
+      }} exact/>
+      <Route path="/blog" component={() => { 
+        window.location.href = 'https://jhasubhash.medium.com/'; 
+        return null;
+      }} exact/>
+      <Route path="/" component={App}  exact/>
+    </Switch>
+  </Router>,
   document.getElementById('root')
 );
 
