@@ -12,7 +12,8 @@ const config = {
     }
 };
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
-PIXI.settings.FILTER_RESOLUTION = 2;
+PIXI.settings.RESOLUTION = 4;
+PIXI.settings.FILTER_RESOLUTION = 4;
 
 const Filters = withFilters(Container, {
     displacement: PIXI.filters.DisplacementFilter

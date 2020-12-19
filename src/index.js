@@ -9,9 +9,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 var hist = createBrowserHistory();
 ReactDOM.render(
   <Router basename={process.env.PUBLIC_URL} history={hist}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
   <Switch>
       <Route path="/tree" component={() => { 
         window.location.href = 'https://jhasubhash.github.io/tree/'; 
