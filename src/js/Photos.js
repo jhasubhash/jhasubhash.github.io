@@ -1,4 +1,3 @@
-import '../css/App.css';
 import '../css/Photos.css';
 import * as InstagramFeed from '../third-party/InstagramFeed';
 import React, {useRef, useEffect} from 'react';

@@ -28,7 +28,7 @@ export const Contact = () => {
 
     return (
         <div id="tagCloud">
-            <canvas width="300" height={height} id="myCanvas">
+            <canvas id="myCanvas">
             <p>Canvas not supported !!!</p>
             <ul>
                 <li><a href="https://www.facebook.com/subhash.jha.333" target="_blank" rel="noreferrer" ><img src={fbLogo} width="40px" height="40px" alt="Facebook"/></a></li>

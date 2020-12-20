@@ -4,16 +4,20 @@
   /*background: radial-gradient(at 50% 50%, #4e4f52, #282c34) fixed;*/
 }
 
-
-.App-header {
+.main {
   min-height: 100vh;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.rightIcon, .leftIcon {
+  align-self: center;
+}
+
 
 body::after{
   position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
@@ -32,68 +36,16 @@ body::after{
     transform: rotate(360deg);
   }
 }
-@media only screen and (max-width: 500px) {
-  .profile {
-    clip-path: circle(140px);
-  }
-  
-  .profile-border {
-    position: relative;
-    margin: 10px;
-    background-color: #2e2e2d;
-    clip-path: circle(150px);
-    width: 300px;
-    height: 300px;
-  }
-
-  .picBlock {
-    position: relative;
-    height: fit-content;
-    width: 350px;
-    padding:10px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  .container {
-    height: 140px;
-    width: 350px;
-  }
-}
 
 @media only screen and (min-width: 500px) {
-  .profile {
-    clip-path: circle(190px);
-  }
-  
-  .profile-border {
-    position: relative;
-    margin: 10px;
-    background-color: #2e2e2d;
-    clip-path: circle(200px);
-    width: 400px;
-    height: 400px;
-  }
 
-  .picBlock {
-    position: relative;
-    height: fit-content;
-    width: 400px;
-    padding: 10px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  .container {
-    height: 160px;
-    width: 400px;
-  }
 
   .iconStyle:hover {
     transform: scale(1.2); 
     color: rgb(255, 200, 62);
   }
 }
+
 .textBlock {
   height: 100%;
   width: 100%;
@@ -109,29 +61,9 @@ body::after{
 }
 
 .container {
+  width: 80%;
+  height: 160px;
   overflow: hidden;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.picBlock::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.picBlock {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.instagram_gallery {
-  display: flex;
-}
-
-div.instagram_gallery > a > img{
-  width: 120px;
-  height: 120px;
-  margin: 10px;
-  box-shadow: 7px 6px 8px 1px rgba(0, 0, 0, 0.44); 
 }
 
 .iconList {
