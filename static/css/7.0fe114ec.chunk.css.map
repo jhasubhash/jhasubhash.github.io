@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/css/Contact.css"],"names":[],"mappings":"AACA,UACI,UAAW,CACX,WAAY,CACZ,qBAAsB,CACtB,uBAA2B,CAC3B,2BACJ","file":"7.0fe114ec.chunk.css","sourcesContent":["\n#tagCloud{\n    width: 100%;\n    height: 100%;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n}"]}
