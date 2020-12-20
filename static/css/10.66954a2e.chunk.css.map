@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/css/Profile.css"],"names":[],"mappings":"AAAA,OACI,aAAc,CACd,UAAW,CACX,WACF","file":"10.66954a2e.chunk.css","sourcesContent":["canvas {\n    display: block;\n    width: 100%;\n    height: 100%;\n  }"]}
