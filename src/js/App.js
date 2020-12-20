@@ -116,7 +116,7 @@ function App() {
     <ThemeProvider theme={theme}>
     <div className="App">
       <div className={classes.root}>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item sm>
           <BrowserView>
             {leftSpace && <Blog/>}
@@ -125,19 +125,19 @@ function App() {
 
         <Grid item xs className="main">
         <Grid container >
-        <Grid item xs={2} className="leftIcon">
+        <Grid item xs={1} sm={2} className="leftIcon">
           <BrowserView>
             <FontAwesomeIcon icon={faCaretLeft} className="iconStyle" id="leftSpace" style={{ transform : leftSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
           </BrowserView>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={10} sm={8}>
           <div style={profileBorderStyle}>
             <div ref = {parentRef} style={profileStyle}>
               <Profile width={parentWidth/2} height={parentHeight/2}/>
             </div>
           </div>
         </Grid>
-        <Grid item xs={2} className="rightIcon">
+        <Grid item xs={1} sm={2} className="rightIcon">
           <BrowserView>
             <FontAwesomeIcon icon={faCaretRight} className="iconStyle" id="rightSpace" style={{ transform : rightSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
           </BrowserView>
