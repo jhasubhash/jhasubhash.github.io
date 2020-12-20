@@ -8,7 +8,7 @@ export const AboutMe = () => {
         <div className="aboutMeBlock">
           <Typist avgTypingDelay={60} cursor={{element:'▌'}}>
             Hello World !!! <br/>My name is Subhash Jha. I am a software developer by profession. Currently working as computer scientist @Adobe Bangalore. My work is mostly around C++, JS, and WebAssembly.
-            In my free time, I like putting paint on canvas.
+            In my free time, I like putting paint on canvas.My name is Subhash Jha.
           </Typist>
         </div>
     )

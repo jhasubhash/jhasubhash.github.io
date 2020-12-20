@@ -20,9 +20,6 @@ const Filters = withFilters(Container, {
     displacement: PIXI.filters.DisplacementFilter
 });
 
-let gWidth = 267;
-let gHeight = isMobileOnly ? 150 : 200;
-
 const texture = PIXI.Sprite.from(profilePic).texture;
 const ProfilePic = ({ config, width, height }) => {
     const displacementSpriteRef = React.useRef();

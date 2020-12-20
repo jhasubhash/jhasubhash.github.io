@@ -91,6 +91,7 @@ function App() {
   useEffect(() => {
     setParentHeight(parentRef.current.offsetWidth);
     setParentWidth(parentRef.current.offsetWidth);
+    Blog.preload();
     Profile.preload();
     AboutMe.preload();
     Career.preload();
