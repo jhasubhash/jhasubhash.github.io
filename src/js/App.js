@@ -10,6 +10,12 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
+import ReactGA from 'react-ga';
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-175515238-2');
+  ReactGA.pageview(window.location.pathname);
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,6 +104,7 @@ function App() {
     Education.preload();
     Photos.preload();
     Contact.preload();
+    initializeReactGA();
   });
 
   const parentRef = React.useRef(null);

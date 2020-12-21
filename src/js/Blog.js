@@ -18,7 +18,7 @@ let contents = [];
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        margin: theme.spacing(1),
+        margin: theme.spacing(1)
     },
     media: {
         height: 140,
@@ -70,7 +70,7 @@ const generateLinks = (classes) => {
                 <Card className={classes.root} elevation={3} key={i}>
                     <div className={classes.details}>
                     <CardContent className={classes.content}>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h6" component="h2">
                         {title}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
@@ -80,13 +80,11 @@ const generateLinks = (classes) => {
                                 truncateText="…"
                                 text={snippet}
                             />
+                            <Button size="small" color="primary" href={link} onClick={() => {}}>
+                                Read More
+                            </Button>
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                    <Button size="small" color="primary" href={link} onClick={() => {}}>
-                        Read More
-                    </Button>
-                    </CardActions>
                     </div>
                 </Card>
             ))}
