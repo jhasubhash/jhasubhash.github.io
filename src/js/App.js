@@ -133,9 +133,9 @@ function App() {
         <Grid item xs className="main">
         <Grid container >
         <Grid item xs={1} sm={2} className="leftIcon">
-          <BrowserView>
+          {false && <BrowserView>
             <FontAwesomeIcon icon={faCaretLeft} className="iconStyle" id="leftSpace" style={{ transform : leftSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-          </BrowserView>
+          </BrowserView>}
         </Grid>
         <Grid item xs={10} sm={8}>
           <div style={profileBorderStyle}>
@@ -145,9 +145,9 @@ function App() {
           </div>
         </Grid>
         <Grid item xs={1} sm={2} className="rightIcon">
-          <BrowserView>
+        {false && <BrowserView>
             <FontAwesomeIcon icon={faCaretRight} className="iconStyle" id="rightSpace" style={{ transform : rightSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-          </BrowserView>
+          </BrowserView>}
          </Grid>
         </Grid>
 
