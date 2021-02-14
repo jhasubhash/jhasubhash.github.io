@@ -3,6 +3,7 @@ import '../css/Footer.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,15 +19,15 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export const Footer = () => {
+export const Footer = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Button>Home</Button>
-            <Button>Work</Button>
-            <Button>Life</Button>
-            <Button>Blog</Button>
-            <Button>About</Button>
+            <Button onClick={() => {props.loadPage(1)}} >Home</Button>
+            <Button onClick={() => {props.loadPage(2)}} >Work</Button>
+            <Button onClick={() => {props.loadPage(3)}} >Life</Button>
+            <Button onClick={() => {props.loadPage(4)}} >Blog</Button>
+            <Button onClick={() => {props.loadPage(5)}} >About</Button>
         </div>
     )
 }
