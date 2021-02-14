@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/Blog.js"],"names":["Blog","className"],"mappings":"iNAGaA,G,OAAO,WAChB,OACI,qBAAKC,UAAU","file":"static/js/4.2897c73b.chunk.js","sourcesContent":["\nimport '../css/Blog.css';\n\nexport const Blog = () => {\n    return (\n        <div className=\"Blog\">\n        </div>\n    )\n}"],"sourceRoot":""}

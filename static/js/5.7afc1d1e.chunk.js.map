@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/Life.js"],"names":["Life","className"],"mappings":"2LAGaA,G,MAAO,WAChB,OACI,qBAAKC,UAAU,Y","file":"static/js/5.7afc1d1e.chunk.js","sourcesContent":["\nimport '../css/Life.css';\n\nexport const Life = () => {\n    return (\n        <div className=\"Life\">\n        </div>\n    )\n}"],"sourceRoot":""}
