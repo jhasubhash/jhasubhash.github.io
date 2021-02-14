@@ -34,144 +34,31 @@ const theme = createMuiTheme({
   }
 });
 
-const Profile = loadable(() => import(/* webpackPrefetch: true */ './Profile'), {resolveComponent: (mod) => mod.Profile})
-const AboutMe = loadable(() => import(/* webpackPrefetch: true */ './AboutMe'), {resolveComponent: (mod) => mod.AboutMe});
-const Career = loadable(() => import(/* webpackPrefetch: true */ './Career'), {resolveComponent: (mod) => mod.Career});
-const Education = loadable(() => import(/* webpackPrefetch: true */ './Education'), {resolveComponent: (mod) => mod.Education})
-const Photos = loadable(() => import(/* webpackPrefetch: true */ './Photos'), {resolveComponent: (mod) => mod.Photos})
-const Contact = loadable(() => import(/* webpackPrefetch: true */ './Contact'), {resolveComponent: (mod) => mod.Contact})
+
+const About = loadable(() => import(/* webpackPrefetch: true */ './About'), {resolveComponent: (mod) => mod.About});
+const Work = loadable(() => import(/* webpackPrefetch: true */ './Work'), {resolveComponent: (mod) => mod.Work});
+const Life = loadable(() => import(/* webpackPrefetch: true */ './Life'), {resolveComponent: (mod) => mod.Life})
 const Blog = loadable(() => import(/* webpackPrefetch: true */ './Blog'), {resolveComponent: (mod) => mod.Blog})
 
 function App() {
   const classes = useStyles();
 
-  const [aboutMe, setAboutMe] = React.useState(false);
-  const [career, setCareer] = React.useState(false);
-  const [education, setEduction] = React.useState(false);
-  const [camera, setCamera] = React.useState(false);
-  const [contact, setContact] = React.useState(false);
-  const [leftSpace, setLeftSpace] = React.useState(false);
-  const [rightSpace, setRightSpace] = React.useState(false);
-  const [parentHeight, setParentHeight] = React.useState(0);
-  const [parentWidth, setParentWidth] = React.useState(0);
-  
-  const onIconClick = (id) => {
-    if(id === 'aboutme'){
-      setAboutMe(!aboutMe);
-      setCareer(false);
-      setEduction(false);
-      setCamera(false);
-      setContact(false);
-    }else if(id === 'education'){
-      setAboutMe(false);
-      setCareer(false);
-      setEduction(!education);
-      setCamera(false);
-      setContact(false);
-    }else if(id === 'career'){
-      setAboutMe(false);
-      setCareer(!career);
-      setEduction(false);
-      setCamera(false);
-      setContact(false);
-    }else if(id === 'camera'){
-      setAboutMe(false);
-      setCareer(false);
-      setEduction(false);
-      setCamera(!camera);
-      setContact(false);
-    }else if(id === 'contact'){
-      setAboutMe(false);
-      setCareer(false);
-      setEduction(false);
-      setCamera(false);
-      setContact(!contact);
-    }
-    if(id === "leftSpace"){
-      setLeftSpace(!leftSpace);
-    }
-    if(id === "rightSpace"){
-      setRightSpace(!rightSpace);
-    }
-  }
   useEffect(() => {
-    setParentHeight(parentRef.current.offsetWidth);
-    setParentWidth(parentRef.current.offsetWidth);
+    //setParentHeight(parentRef.current.offsetWidth);
+    //setParentWidth(parentRef.current.offsetWidth);
     Blog.preload();
-    Profile.preload();
-    AboutMe.preload();
-    Career.preload();
-    Education.preload();
-    Photos.preload();
-    Contact.preload();
+    About.preload();
+    Work.preload();
+    Life.preload();
     initializeReactGA();
   });
-
-  const parentRef = React.useRef(null);
-  const childRef = React.useRef(null);
-
-  let profileStyle = {
-    clipPath : 'circle(48%)'
-  }
-
-  const profileBorderStyle = {
-    backgroundColor : "#2e2e2d",
-    clipPath : 'circle(49%)'
-  }
 
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
       <div className={classes.root}>
       <Grid container>
-        <Grid item sm>
-          <BrowserView>
-            {leftSpace && <Blog/>}
-          </BrowserView>
-        </Grid>
-
-        <Grid item xs className="main">
-        <Grid container >
-        <Grid item xs={1} sm={2} className="leftIcon">
-          {false && <BrowserView>
-            <FontAwesomeIcon icon={faCaretLeft} className="iconStyle" id="leftSpace" style={{ transform : leftSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-          </BrowserView>}
-        </Grid>
-        <Grid item xs={10} sm={8}>
-          <div style={profileBorderStyle}>
-            <div ref = {parentRef} style={profileStyle}>
-              <Profile width={parentWidth/2} height={parentHeight/2}/>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={1} sm={2} className="rightIcon">
-        {false && <BrowserView>
-            <FontAwesomeIcon icon={faCaretRight} className="iconStyle" id="rightSpace" style={{ transform : rightSpace ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-          </BrowserView>}
-         </Grid>
-        </Grid>
-
-          <div className="iconList">
-            <FontAwesomeIcon icon={faUser} className="iconStyle" id="aboutme" style={{ transform : aboutMe ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}} onMouseOver={(e)=>{AboutMe.preload()}} />
-            <FontAwesomeIcon icon={faUserGraduate} className="iconStyle" id="education" style={{ transform : education ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-            <FontAwesomeIcon icon={faBriefcase} className="iconStyle"  id="career" style={{ transform : career ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-            <FontAwesomeIcon icon={faCamera} className="iconStyle" id="camera" style={{ transform : camera ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-            <FontAwesomeIcon icon={faAddressBook} className="iconStyle" id="contact" style={{ transform : contact ?"scale(0.80)":"scale(1)"}} onClick={(e)=>{onIconClick(e.currentTarget.id)}}/>
-          </div>
-          <div className="container">
-          {aboutMe && <AboutMe/>}
-          {career && <Career/>}
-          {education && <Education/>}
-          {camera && <Photos/>}
-          {contact && <Contact/>}
-          </div>
-        </Grid>
-
-        <Grid item sm>
-          <BrowserView>
-            {rightSpace && <Blog/>}
-          </BrowserView>
-        </Grid>
+        HELLO WORLD !!!
       </Grid>
       </div>
     </div>
