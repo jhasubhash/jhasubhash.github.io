@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import App from './js/App';
+import Home from './js/Home';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from "history";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -18,7 +18,7 @@ ReactDOM.render(
         window.location.href = 'https://jhasubhash.medium.com/'; 
         return null;
       }} exact/>
-      <Route path="/" component={App}  exact/>
+      <Route path="/" component={Home}  exact/>
     </Switch>
   </Router>,
   document.getElementById('root')
