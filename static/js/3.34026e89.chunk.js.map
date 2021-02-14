@@ -1,1 +1,0 @@
-{"version":3,"sources":["js/About.js"],"names":["About","className"],"mappings":"4LAGaA,G,MAAQ,WACjB,OACI,qBAAKC,UAAU,a","file":"static/js/3.34026e89.chunk.js","sourcesContent":["\nimport '../css/About.css';\n\nexport const About = () => {\n    return (\n        <div className=\"About\">\n        </div>\n    )\n}"],"sourceRoot":""}
