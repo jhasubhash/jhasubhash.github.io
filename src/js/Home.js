@@ -3,8 +3,6 @@ import '../css/Common.css';
 import React, {useEffect} from 'react';
 import loadable from '@loadable/component'
 import 'react-typist/dist/Typist.css';
-import { faUser, faBriefcase, faCamera, faUserGraduate, faAddressBook, faCaretRight, faCaretLeft} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
