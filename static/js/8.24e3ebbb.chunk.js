@@ -1,2 +1,0 @@
-(this["webpackJsonpjhasubhash.github.io"]=this["webpackJsonpjhasubhash.github.io"]||[]).push([[8],{100:function(i,s,t){},106:function(i,s,t){"use strict";t.r(s),t.d(s,"Life",(function(){return u}));var n=t(3),u=(t(100),function(){return Object(n.jsx)("div",{className:"Life"})})}}]);
-//# sourceMappingURL=8.24e3ebbb.chunk.js.map
