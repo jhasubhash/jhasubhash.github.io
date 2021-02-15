@@ -60,7 +60,7 @@ export const About = () => {
             <div className={classes.about}>
                     <Typography variant="h6" gutterBottom>
                         <b>I am Subhash Jha </b><br/>
-                        I am working as Computer Scientist @ Adobe Systems. <br/>
+                        Currently working as Computer Scientist @ Adobe <br/>
                         I like creating stuff, which explains my interest in almost all the creative skills.<br/>
                         In my free time, you would find me surfing through internet looking for new ideas.<br/>
                         Painting is one of my several hobby. Along with drawing, I love writing stuff as well.<br/>

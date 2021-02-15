@@ -64,6 +64,7 @@ function Home() {
     <div className="Home">
       <div className={classes.root}>
         { pageId === 1 && <Landing/> }
+        { pageId === 4 && <Blog/> }
         { pageId === 5 && <About/> }
         <Footer loadPage={loadPage}/>
       </div>
