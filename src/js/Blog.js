@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         backdropFilter: 'blur(20px)',
         top: '0',
-        bottom: '50vh',
+        bottom: '10vh',
         left: 0,
         right: 0,
     },
@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         backgroundColor: 'transparent',
         top: '0',
+        bottom: '0',
         marginTop: '20vh',
+        overflowX: 'hidden',
+        overflowY: 'scroll',
         left: 0,
         right: 0,
     },
@@ -54,7 +57,7 @@ export const Blog = () => {
             <Grid container className={classes.body}></Grid>
             <div className={classes.overlay}>
             <div className={classes.blog}>
-            <div className={classes.posts} id="medium-widget"> LOADING ...</div>
+            <div className={classes.posts} id="medium-widget"></div>
             </div>
             </div>
         </div>

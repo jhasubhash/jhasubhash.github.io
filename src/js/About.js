@@ -58,7 +58,7 @@ export const About = () => {
             <Grid container className={classes.body}></Grid>
             <div className={classes.overlay}>
             <div className={classes.about}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography gutterBottom>
                         <b>I am Subhash Jha </b><br/>
                         Currently working as Computer Scientist @ Adobe <br/>
                         I like creating stuff, which explains my interest in almost all the creative skills.<br/>
