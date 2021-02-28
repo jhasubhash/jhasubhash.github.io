@@ -11,6 +11,8 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import headerPic from '../assets/life_banner.jpg';
+
 const useStyles = makeStyles((theme) => ({
     root: {
     },
@@ -39,7 +41,12 @@ const useStyles = makeStyles((theme) => ({
         height: '80vh',
     },
     header: {
-        backgroundColor: 'white',
+        backgroundImage: `url(${headerPic})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'auto 100%',
+        backgroundColor: 'black',
         height: '20vh',
     },
     posts: {
