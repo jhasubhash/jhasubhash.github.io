@@ -63,7 +63,7 @@ export const About = () => {
                         Currently working as Computer Scientist @ Adobe <br/>
                         I like creating stuff, which explains my interest in almost all the creative skills.<br/>
                         In my free time, you would find me surfing through internet looking for new ideas.<br/>
-                        Painting is one of my several hobby. Along with drawing, I love writing stuff as well.<br/>
+                        Painting is one of my several hobbies. Along with drawing, I love writing stuff as well.<br/>
                     </Typography>
                 <div className={classes.links}>
                 <a href="https://www.linkedin.com/in/scjha/" target="_blank" style={{color:'#FFFFFF'}}>

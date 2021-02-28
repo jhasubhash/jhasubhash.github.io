@@ -11,11 +11,12 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
       },
       position: 'absolute',
-      bottom: '2vh',
+      bottom: '0vh',
       left: 0,
       right: 0,
       textAlign: 'center',
       zIndex: 3,
+      backgroundColor: 'black',
     },
   }));
 

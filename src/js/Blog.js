@@ -4,6 +4,7 @@ import React, {useEffect} from 'react';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import headerPic from '../assets/blog_header.jpg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,9 +12,8 @@ const useStyles = makeStyles((theme) => ({
     overlay: {
         zIndex: 1,
         position: 'absolute',
-        backdropFilter: 'blur(20px)',
         top: '0',
-        bottom: '10vh',
+        bottom: '5vh',
         left: 0,
         right: 0,
     },
@@ -30,16 +30,18 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
     },
     body: {
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         height: '80vh',
     },
     header: {
-        backgroundColor: 'white',
+        backgroundImage: `url(${headerPic})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         height: '20vh',
     },
     posts: {
         backgroundColor: 'white',
-        opacity: '0.8',
     }
 }));
 
