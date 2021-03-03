@@ -16,6 +16,7 @@ import headerPic from '../assets/life_banner.jpg';
 import intelPic from '../assets/intel.jpg';
 import adobePic from '../assets/adobe.jpg';
 import carPic from '../assets/car.jpeg';
+import weddingPic from '../assets/wedding.jpg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -96,7 +97,7 @@ export const Life = () => {
             >
                 <h4 className="vertical-timeline-element-subtitle">Bought First Car</h4>
                 <p>
-                    <img alt="Adobe" src={carPic} className={classes.avatar} />
+                    <img alt="Car" src={carPic} className={classes.avatar} />
                     Finally after a lot of delay due to the covid situation, we bought our first car in Feb, 2021.
                     Though we started our search from the Kia Sonet segment, hyundai creata caught my attention. And once you 
                     fall for somthing it's hard to look away from it. 
@@ -112,7 +113,8 @@ export const Life = () => {
             >
                 <h4 className="vertical-timeline-element-subtitle">The Marriage</h4>
                 <p>
-                    Coming Soon ...
+                    <img alt="Wedding" src={weddingPic} className={classes.avatar} />
+                    On this day I got married to this wonderful lady. 
                 </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -158,7 +160,11 @@ export const Life = () => {
             >
                 <h4 className="vertical-timeline-element-subtitle">Indian Institute of Technology</h4>
                 <p>
-                    Coming Soon ...
+                    Instead of going for a job after my Bachelors, I decided to go for Masters. This decision was not that hard to make. 
+                    After graduating from a Tier 3 college it's always harder to move up in your career compare to when you have a degree 
+                    from IITs to showacse on your resume. I don't support this but this is a fact of life more so in India. None the less, this 
+                    was one of the best desicion of my career. After staying there for just two years, I realized why and how these premier 
+                    institutes are different than the other regular private colleges.
                 </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -171,7 +177,9 @@ export const Life = () => {
             >
                 <h4 className="vertical-timeline-element-subtitle">Heritage Institute of Technology</h4>
                 <p>
-                    Coming Soon ...
+                    After living an adventurous and super fun life in Kota, it was time to make amends for that. Life always finds a way to 
+                    balance things and mine was no different. Academically I wouldn't say that I enjoyed my stay here. But, the time I spent here 
+                    taught me a lot of valuble lessons.
                 </p>
             </VerticalTimelineElement> 
             <VerticalTimelineElement

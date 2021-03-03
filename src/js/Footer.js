@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
       zIndex: 3,
       backgroundColor: 'black',
+      height: '7vh',
+      display: 'flex',
+      justifyContent: 'center'
     },
   }));
 
