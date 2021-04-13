@@ -1,5 +1,36 @@
-title: Subhash Jha
-author: Subhash Jha
-theme: jekyll-theme-midnight
-show_downloads: false
+title: Hello, world! I'm Subhash Jha
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+permalink: ':title/'
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://subhashjha.in" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: subhashjha333
 
+# Author Settings
+author: Subhash Jha # add your name
+author-img: profile.jpg # add your photo
+about-author: I am a software developer. Currently working as Computer Sceientist @ Adobe Systems, Bangalore. # add description
+social-twitter: subhashjha333# add your Twitter handle
+social-github: jhasubhash # add your Github handle
+social-linkedin: scjha# add your Linkedin handle
+social-email: subhashjha.mail@gmail.com# add your Email address
+
+# Disqus
+#discus-identifier: mr-brown # add your discus identifier
+
+# Tracker
+#analytics: # Google Analytics
+
+# Build Settings
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 8
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
