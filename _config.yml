@@ -9,3 +9,5 @@ social-network-links:
   linkedin: scjha
 
 url-pretty: "subhashjha.in"
+github:
+  is_project_page: false
