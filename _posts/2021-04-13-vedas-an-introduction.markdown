@@ -10,7 +10,7 @@ tags: [Vedas, Religion, Hinduism]
 
 > The intention of this post is purely to know the facts about the vedas. I am no expert in *Sanskrit* which is why this and all the subsequent on this topic will be just the collection of data from around the internet. Even among the experts there is no consistency in the interpretation of the vedic text. So I will try to gather as many different interpretation as I can and will be presenting through my posts. <br><br>
 
-There are many ancient religious text in Hinduism. Vedas are known to be the oldest one. These are the shruti (*that which is heard*) texts, which means that it was not created in a written manner. Ancient scholars used to chant these shlokas and those were passed on to next generations in verbal form. Over the period of time, people started writing things and the deciples of these scholars (read yogi and saadhus) started collecting these shlokas in a form of collection. These are now known as Vedas.
+There are many ancient religious text in Hinduism. Vedas are known to be the oldest one. These are the shruti (*that which is heard*) texts, which means that it was not created in a written manner. Ancient scholars used to chant these shlokas and those were passed on to next generations in verbal form. Over the period of time, people got familiar with writing and the disciples of these scholars (read yogi and saadhus) started writing down these shlokas in a form of collection. These are now known as Vedas.
 
 ![Ancient Literature Diagram]({{site.baseurl}}/assets/img/vedic-literature.png)
 
