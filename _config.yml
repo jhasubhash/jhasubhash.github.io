@@ -11,11 +11,11 @@ site-twitter: subhashjha333
 # Author Settings
 author: Subhash Jha # add your name
 author-img: profile.jpg # add your photo
-about-author: I am a software developer. Currently working as Computer Sceientist @ Adobe Systems, Bangalore. # add description
-social-twitter: subhashjha333# add your Twitter handle
-social-github: jhasubhash # add your Github handle
-social-linkedin: scjha# add your Linkedin handle
-social-email: subhashjha.mail@gmail.com# add your Email address
+about-author: I am a software developer. Currently working as Computer Scientist @ Adobe Systems, Bangalore. # add description
+social-twitter: subhashjha333
+social-github: jhasubhash
+social-linkedin: scjha
+social-email: subhashjha.mail@gmail.com
 
 # Disqus
 #discus-identifier: mr-brown # add your discus identifier
