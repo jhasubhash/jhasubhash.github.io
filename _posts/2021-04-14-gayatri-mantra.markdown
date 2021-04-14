@@ -1,7 +1,7 @@
 ---
 layout: post
 title: An Atheist who knows Gayatri Mantra
-date: 2021-04-13 19:32:20 +0530
+date: 2021-04-14 10:30:20 +0530
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: gayatri.gif # Add image post (optional)
 fig-caption: # Add figcaption (optional)
