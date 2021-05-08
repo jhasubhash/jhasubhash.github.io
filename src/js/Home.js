@@ -36,9 +36,9 @@ theme = responsiveFontSizes(theme);
 
 const Landing = loadable(() => import(/* webpackPrefetch: true */ './Landing'), {resolveComponent: (mod) => mod.Landing})
 const About = loadable(() => import(/* webpackPrefetch: true */ './About'), {resolveComponent: (mod) => mod.About});
-const Work = loadable(() => import(/* webpackPrefetch: true */ './Work'), {resolveComponent: (mod) => mod.Work});
-const Life = loadable(() => import(/* webpackPrefetch: true */ './Life'), {resolveComponent: (mod) => mod.Life})
-const Blog = loadable(() => import(/* webpackPrefetch: true */ './Blog'), {resolveComponent: (mod) => mod.Blog})
+//const Work = loadable(() => import(/* webpackPrefetch: true */ './Work'), {resolveComponent: (mod) => mod.Work});
+//const Life = loadable(() => import(/* webpackPrefetch: true */ './Life'), {resolveComponent: (mod) => mod.Life})
+//const Blog = loadable(() => import(/* webpackPrefetch: true */ './Blog'), {resolveComponent: (mod) => mod.Blog})
 
 function Home() {
   const classes = useStyles();
@@ -48,10 +48,10 @@ function Home() {
     //setParentHeight(parentRef.current.offsetWidth);
     //setParentWidth(parentRef.current.offsetWidth);
     Landing.preload();
-    Blog.preload();
+    //Blog.preload();
     About.preload();
-    Work.preload();
-    Life.preload();
+    //Work.preload();
+    //Life.preload();
     initializeReactGA();
   });
 
@@ -64,9 +64,6 @@ function Home() {
     <div className="Home">
       <div className={classes.root}>
         { pageId === 1 && <Landing/> }
-        { pageId === 2 && <Work/> }
-        { pageId === 3 && <Life/> }
-        { pageId === 4 && <Blog/> }
         { pageId === 5 && <About/> }
         <Footer loadPage={loadPage}/>
       </div>

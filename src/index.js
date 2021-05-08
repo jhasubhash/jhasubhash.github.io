@@ -18,6 +18,10 @@ ReactDOM.render(
         window.location.href = 'https://jhasubhash.medium.com/'; 
         return null;
       }} exact/>
+      <Route path="/gallery" component={() => { 
+        window.location.href = 'https://jhasubhash.github.io/gallery/'; 
+        return null;
+      }} exact/>
       <Route path="/" component={Home}  exact/>
     </Switch>
   </Router>,
