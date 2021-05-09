@@ -30,7 +30,7 @@ export const Footer = (props) => {
         <div className={classes.root}>
             <Button onClick={() => {props.loadPage(1)}} >Home</Button>
             <Button href='https://jhasubhash.github.io/gallery/' >Gallery</Button>
-            <Button href='https://jhasubhash.medium.com/' >Blog</Button>
+            <Button href='https://jhasubhash.github.io/blog/' >Blog</Button>
             <Button onClick={() => {props.loadPage(5)}} >About</Button>
         </div>
     )

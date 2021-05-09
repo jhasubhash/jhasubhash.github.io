@@ -62,7 +62,7 @@ export const Landing = () => {
                 <Grid item xs={12} sm={12} md={9} className={classes.homeIntro}>
                     <React.Fragment>
                     <Typography variant="h2" component="h2" gutterBottom>
-                    I am Subahsh Jha
+                    I am Subhash Jha
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         Software Developer | Blogger | Artist | Ocassional Photographer
