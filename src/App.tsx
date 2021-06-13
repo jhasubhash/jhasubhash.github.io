@@ -35,6 +35,10 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path='/' exact component={Foundation} />
+            <Route path="/gallery" component={() => { 
+              window.location.href = 'https://jhasubhash.github.io/gallery/'; 
+              return null;
+            }} exact/>
           </Switch>
         </BrowserRouter>
       </ThemeProvider>

@@ -12,10 +12,11 @@ createStyles({
         gap:'2vh',
         alignItems: 'center',
         overflow: 'scroll',
-        height: '85vh',
+        height: '100vh',
         marginTop: '4em',
         '@media (max-width: 800px)': {
-          margin: '0.5em',
+            height: '85vh',
+            margin: '0.5em',
         },
     },
     card: {
