@@ -23,7 +23,7 @@ export const Gallery = (props: Props) => {
 
     return (
         <Paper className={classes.wrapper} square>
-            <Iframe url="http://subhashjha.in/gallery"
+            <Iframe url="https://subhashjha.in/gallery"
             width="100%"
             height="100%"
             id="myId"
