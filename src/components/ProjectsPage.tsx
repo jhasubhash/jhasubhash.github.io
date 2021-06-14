@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Paper} from '@material-ui/core';
+import { Card, CardContent, makeStyles, Paper, Typography} from '@material-ui/core';
 import tree from '../assets/images/tree.png'
 
 const useStyles = makeStyles({
@@ -62,15 +62,17 @@ export const ProjectsPage = (props: Props) => {
     const classes = useStyles();
     return (
         <Paper className={classes.content} square>
-            <div className={classes.card}>
+            <Card className={classes.card}>
                 <img src={tree} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"project"}/>
-                <div className={classes.cardContent}>
-                <span><b>Family Tree</b></span>
-                <span style={{opacity:0.7}}>Create and share your own family tree as well as that of well known personalities.</span>
-                <a className={classes.gplay} href={"https://play.google.com/store/apps/details?id=in.pseudocoder.tree.twa"} target='_blank' rel="noreferrer" >Play Store</a>
-                <a href={"https://tree.pseudocoder.in"} target='_blank'  rel="noreferrer" className={classes.cardLink} >Try It</a>
+                <CardContent className={classes.cardContent}>
+                <Typography variant="body1">Family Tree</Typography>
+                <Typography variant="body2">Create and share your own family tree as well as that of well known personalities.</Typography>
+                <div style={{display:'flex', justifyContent:'space-between'}}>
+                <Typography variant="body2"><a className={classes.gplay} href={"https://play.google.com/store/apps/details?id=in.pseudocoder.tree.twa"} target='_blank' rel="noreferrer" >Play Store</a></Typography>
+                <Typography variant="body2"><a href={"https://tree.pseudocoder.in"} target='_blank'  rel="noreferrer" className={classes.cardLink} >Try It</a></Typography>
                 </div>
-            </div>
+                </CardContent>
+            </Card>
         </Paper>
     )
 }

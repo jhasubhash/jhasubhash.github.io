@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Axios from "axios";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, Paper } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Paper, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({
@@ -24,8 +24,8 @@ createStyles({
         width: '100%',
         '@media (min-width: 800px)': {
             maxWidth: '650px',
+            minHeight: '100px',
         },
-        minHeight: '100px',
     },
     cardContent: {
         textAlign:'left', 
@@ -86,25 +86,29 @@ const ToText = (node: any)=>{
     return node;
 }
 
-const getCardElement = (props: any) => {
+const isDesktop = () => {
+    return window.innerWidth > 800;
+}
 
+const getCardElement = (props: any) => {
+    const strLen = isDesktop() ? 150: 100;
     const classes = props.classes;
     return ( 
         <Card className={classes.card} key={props.key}>
-            <CardMedia>
+            {isDesktop() && <CardMedia>
             <img src={props.thumbnail} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"post cover"}/>
-            </CardMedia>
-            <CardContent className={classes.cardContent}>
-            <span><b>{props.title}</b></span>
-            {props.description && <span style={{opacity:0.7}}>{`${ToText(props.description.substring(0, 150))}...`}</span>}
+            </CardMedia>}
+            <div className={classes.cardContent}>
+            <Typography variant="body1">{props.title}</Typography>
+            <Typography variant="body2">{props.description && <span style={{opacity:0.7}}>{`${ToText(props.description.substring(0, strLen))}...`}</span>}</Typography>
             <div className={classes.cardFooter}>
                 <div className={classes.pillCollection}>
                     {props.categories.splice(0,2).map((category:string) => <div className={classes.categoryPill}>{category}</div>)}
                 </div>
                 {false && <div className={classes.cardLink} onClick={()=>props.onReadMore(props.key)}>Read More ...</div>}
-                <a className={classes.cardLink} href={props.link} target={"_blank"} rel="noreferrer">Read More ...</a>
+                <Typography variant="caption"><a className={classes.cardLink} href={props.link} target={"_blank"} rel="noreferrer">Read More ...</a></Typography>
             </div>
-            </CardContent>
+            </div>
         </Card>
     )
 }
@@ -163,7 +167,7 @@ export const BlogPostsPage = (props: Props) => {
     }
 
     return (
-        <Paper className={classes.content} square>
+        <Paper className={classes.content} square elevation={0}>
             {isLoading && <div className={classes.loader}></div>}
             {postUI}
         </Paper>
