@@ -22,6 +22,7 @@ createStyles({
     card: {
         display: 'flex',
         width: '100%',
+        overflow: 'unset',
         '@media (min-width: 800px)': {
             maxWidth: '650px',
             minHeight: '100px',
