@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       gallery: {
         width: '100vw',
-        height: '100vh'
-      }
+        height: '100vh',
+        borderStyle: 'none',
+      },
   }),
 );
 
