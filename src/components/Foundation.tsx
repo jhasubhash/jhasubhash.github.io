@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import { BlogPostsPage } from "./BlogPostsPage";
 import {Nav} from './Nav';
+import loadable from '@loadable/component'
 import { Main } from './Main';
-import {ProjectsPage} from './ProjectsPage';
-import {Gallery} from './Gallery';
+
+const ProjectsPage = loadable(() => import(/* webpackPrefetch: true */ './ProjectsPage'), {resolveComponent: (mod: { ProjectsPage: any; }) => mod.ProjectsPage})
+const Gallery = loadable(() => import(/* webpackPrefetch: true */ './Gallery'), {resolveComponent: (mod: { Gallery: any; }) => mod.Gallery})
+const BlogPostsPage = loadable(() => import(/* webpackPrefetch: true */ './BlogPostsPage'), {resolveComponent: (mod: { BlogPostsPage: any; }) => mod.BlogPostsPage})
 
 interface Props {
     
@@ -46,6 +48,12 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Foundation = (props: Props) => {
     const [view, setView] = useState(0);
     const classes = useStyles();
+
+    useEffect(() => {
+      ProjectsPage.preload();
+      Gallery.preload();
+      BlogPostsPage.preload();
+    }, [])
 
     return (
         <Paper className={classes.wrapper} square>

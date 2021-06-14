@@ -1,6 +1,9 @@
 import React from 'react'
 import { Card, CardContent, makeStyles, Paper, Typography} from '@material-ui/core';
-import tree from '../assets/images/tree.png'
+import tree from '../assets/images/treeIcon.png'
+import Carousel from 'react-material-ui-carousel'
+import work from "../assets/images/work.json";
+import { useLottie } from "lottie-react";
 
 const useStyles = makeStyles({
     content: {
@@ -8,28 +11,35 @@ const useStyles = makeStyles({
         textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
-        gap:'2vh',
         height: '100vh',
         width:'100vw',
         overflow: 'scroll',
         alignItems: 'center',
+        paddingTop: '1em',
+        '@media (min-width: 800px)': {
+            marginTop: '3em',
+        },
     },
     card: {
         '@media (min-width: 800px)': {
             maxWidth: '650px',
+            marginTop: '1em'
         },
-        boxShadow:`0 5px 5px rgba(0,0,0,0.19), 0 1px 1px rgba(0,0,0,0.23)`,
         display: 'flex',
+        flexDirection: 'column',
         backgroundColor: `rgb(56,56,56)`,
-        marginTop: '4em',
+        alignItems: 'center',
+        paddingRight: '1em',
+        paddingLeft: '1em',
         '@media (max-width: 800px)': {
-          margin: '0.5em',
+          margin: 'auto',
+          width: '80%',
+          marginTop: '1em'
         },
     },
     cardContent: {
         width: '100%',
-        textAlign:'left', 
-        padding:'5px',
+        textAlign:'left',
         display: 'flex',
         flexDirection: 'column',
         gap: '5px',
@@ -50,11 +60,36 @@ const useStyles = makeStyles({
         opacity:0.7, 
         fontSize:'0.8em',
         color:'skyblue',
-    }
+    },
+    pic: {
+        height: '300px',
+        width: '100%'
+    },
+
+    codeAnim : {
+        marginTop: '2em',
+        maxWidth: '800px',
+        maxHeight: '800px',
+    },
 });
 
 interface Props {
     
+}
+
+
+const isDesktop = () => {
+    return window.innerWidth > 800;
+}
+
+const GetCodeAnim = () => {
+    const options = {
+        animationData: work,
+        loop: false,
+        autoplay: true,
+      };
+    const { View } = useLottie(options);
+    return View;
 }
 
 export const ProjectsPage = (props: Props) => {
@@ -62,6 +97,10 @@ export const ProjectsPage = (props: Props) => {
     const classes = useStyles();
     return (
         <Paper className={classes.content} square>
+            <Typography variant="h6">Projects</Typography>
+            <hr style={{margin:0, opacity:0.6, width:'80%'}}></hr>
+
+            <Carousel autoPlay={false}>
             <Card className={classes.card}>
                 <img src={tree} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"project"}/>
                 <CardContent className={classes.cardContent}>
@@ -73,6 +112,10 @@ export const ProjectsPage = (props: Props) => {
                 </div>
                 </CardContent>
             </Card>
+            </Carousel>
+            <div className={classes.codeAnim}>
+            <GetCodeAnim/>
+            </div>
         </Paper>
     )
 }

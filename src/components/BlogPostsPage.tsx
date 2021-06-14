@@ -3,6 +3,9 @@ import Axios from "axios";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Card, CardContent, CardMedia, Paper, Typography } from '@material-ui/core';
 
+import blog from "../assets/images/blog.json";
+import { useLottie } from "lottie-react";
+
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({
     content: {
@@ -71,7 +74,12 @@ createStyles({
     '@keyframes spin': {
     '0%' : { transform: 'rotate(0deg)' },
     '100%' : { transform: 'rotate(360deg)' }
-    }
+    },
+    codeAnim : {
+        marginTop: '8em',
+        maxWidth: '800px',
+        maxHeight: '800px',
+    },
 }));
 
 interface Props {
@@ -112,6 +120,16 @@ const getCardElement = (props: any) => {
             </div>
         </Card>
     )
+}
+
+const GetCodeAnim = () => {
+    const options = {
+        animationData: blog,
+        loop: true,
+        autoplay: true,
+      };
+    const { View } = useLottie(options);
+    return View;
 }
 
 export const BlogPostsPage = (props: Props) => {
@@ -169,7 +187,10 @@ export const BlogPostsPage = (props: Props) => {
 
     return (
         <Paper className={classes.content} square elevation={0}>
-            {isLoading && <div className={classes.loader}></div>}
+            {isLoading && 
+            <div className={classes.codeAnim}>
+            <GetCodeAnim/>
+            </div>}
             {postUI}
         </Paper>
     )

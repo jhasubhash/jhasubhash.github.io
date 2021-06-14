@@ -49,7 +49,7 @@ export const Nav = (props: Props) => {
             aria-label="nav"
             >
             <Tab label="Home" />
-            <Tab label="Projects" />
+            <Tab label="Work" />
             <Tab label="Gallery" />
             <Tab label="Blog" />
             </Tabs>
