@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
+import { Chip, createStyles, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import React from 'react'
 import code from "../assets/images/code.json";
 import { useLottie } from "lottie-react";
@@ -71,12 +71,16 @@ const GetCodeAnim = () => {
     return View;
 }
 
+const handleLink = () => {
+    window.open("https://pseudocoder.in");
+}
+
 export const Main = (props: Props) => {
     const classes = useStyles();
     return (
         <Paper className={classes.content} square>
             <div className={classes.profile}>
-                {!isDesktop() &&
+                {
                 <React.Fragment>
                 <Typography variant='h6'>Hello World !!! </Typography>
                 <br/>
@@ -84,7 +88,7 @@ export const Main = (props: Props) => {
                 <Typography variant='body1'>Software Developer</Typography>
                 <Typography variant='body2'>C++ | Javascript | ReactJs</Typography>
                 </React.Fragment>}
-                {isDesktop() &&
+                {false && isDesktop() &&
                 <React.Fragment>
                 <Typography variant='h5'>Hello World !!! </Typography>
                 <br/>
@@ -98,6 +102,13 @@ export const Main = (props: Props) => {
                     <a className={classes.iconLink} href="https://www.linkedin.com/in/scjha/" target={"_blank"} rel="noreferrer"><LinkedInIcon/></a>
                     <a className={classes.iconLink} href="mailto:subhashjha.mail@gmail.com"><EmailIcon/></a>
                 </div>
+                <Chip
+                    size="small"
+                    label="https://pseudocoder.in"
+                    clickable
+                    color="primary"
+                    onClick= {handleLink}
+                />
             </div>
             <div className={classes.codeAnim}>
             <GetCodeAnim/>
