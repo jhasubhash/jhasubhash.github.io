@@ -17,12 +17,15 @@ const useStyles = makeStyles({
         alignItems: 'center',
         paddingTop: '1em',
         '@media (min-width: 800px)': {
-            marginTop: '3em',
+            flexDirection: 'row-reverse',
+            justifyContent: 'center',
+            gap: '4vw'
         },
     },
     card: {
         '@media (min-width: 800px)': {
             maxWidth: '650px',
+            height: '650px',
             marginTop: '1em'
         },
         display: 'flex',
@@ -68,9 +71,17 @@ const useStyles = makeStyles({
 
     codeAnim : {
         marginTop: '2em',
-        maxWidth: '800px',
-        maxHeight: '800px',
+        maxWidth: '600px',
+        maxHeight: '600px',
+        '@media (min-width: 800px)': {
+            marginTop: 0,
+        }
     },
+    img : {
+        width:'90%', 
+        height: '90%', 
+        paddingRight:'5px'
+    }
 });
 
 interface Props {
@@ -97,12 +108,12 @@ export const ProjectsPage = (props: Props) => {
     const classes = useStyles();
     return (
         <Paper className={classes.content} square>
-            <Typography variant="h6">Projects</Typography>
-            <hr style={{margin:0, opacity:0.6, width:'80%'}}></hr>
-
+            <div className={classes.codeAnim}>
+            <GetCodeAnim/>
+            </div>
             <Carousel autoPlay={false}  navButtonsAlwaysInvisible={true}>
             <Card className={classes.card}>
-                <img src={tree} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"project"}/>
+                <img src={tree} className={classes.img} alt={"project"}/>
                 <CardContent className={classes.cardContent}>
                 <Typography variant="body1">Family Tree</Typography>
                 <Typography variant="body2">Create and share your own family tree as well as that of well known personalities.</Typography>
@@ -113,9 +124,6 @@ export const ProjectsPage = (props: Props) => {
                 </CardContent>
             </Card>
             </Carousel>
-            <div className={classes.codeAnim}>
-            <GetCodeAnim/>
-            </div>
         </Paper>
     )
 }
