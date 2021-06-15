@@ -100,7 +100,7 @@ export const ProjectsPage = (props: Props) => {
             <Typography variant="h6">Projects</Typography>
             <hr style={{margin:0, opacity:0.6, width:'80%'}}></hr>
 
-            <Carousel autoPlay={false}>
+            <Carousel autoPlay={false}  navButtonsAlwaysInvisible={true}>
             <Card className={classes.card}>
                 <img src={tree} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"project"}/>
                 <CardContent className={classes.cardContent}>
