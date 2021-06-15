@@ -80,7 +80,11 @@ const useStyles = makeStyles({
     img : {
         width:'90%', 
         height: '90%', 
-        paddingRight:'5px'
+        paddingRight:'5px',
+        '@media (max-width: 800px)': {
+            width:'50%', 
+            height: '50%', 
+        }
     }
 });
 
