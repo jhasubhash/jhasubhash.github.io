@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Axios from "axios";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, Paper, Typography } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Chip, Paper, Typography } from '@material-ui/core';
 
 import blog from "../assets/images/blog.json";
 import { useLottie } from "lottie-react";
@@ -27,7 +27,6 @@ createStyles({
         overflow: 'unset',
         '@media (min-width: 800px)': {
             maxWidth: '650px',
-            minHeight: '100px',
         },
     },
     cardContent: {
@@ -47,9 +46,9 @@ createStyles({
     categoryPill:{
         fontSize: '0.7em',
         //borderRadius: '20%',
-        backgroundColor: 'rgba(0,0,0,0.25)',
-        paddingLeft: '0.5em',
-        paddingRight: '0.5em',
+        //backgroundColor: 'rgba(0,0,0,0.25)',
+        //paddingLeft: '0.5em',
+        //paddingRight: '0.5em',
     },
     cardLink:{
         color: theme.palette.primary.main,
@@ -104,14 +103,14 @@ const getCardElement = (props: any) => {
     return ( 
         <Card className={classes.card} key={props.key}>
             {isDesktop() && <CardMedia>
-            <img src={props.thumbnail} style={{width:'100px', height: '100px', paddingRight:'5px'}} alt={"post cover"}/>
+            <img src={props.thumbnail} style={{width:'100px', height: '100%', paddingRight:'5px'}} alt={"post cover"}/>
             </CardMedia>}
             <div className={classes.cardContent}>
             <Typography variant="body1">{props.title}</Typography>
             <Typography variant="body2">{props.description && <span style={{opacity:0.7}}>{`${ToText(props.description.substring(0, strLen))}...`}</span>}</Typography>
             <div className={classes.cardFooter}>
                 <div className={classes.pillCollection}>
-                    {props.categories.splice(0,2).map((category:string) => <div className={classes.categoryPill}>{category}</div>)}
+                    {props.categories.splice(0,2).map((category:string) => <Chip className={classes.categoryPill} size="small" color="default" label={category}/>)}
                 </div>
                 {false && <div className={classes.cardLink} onClick={()=>props.onReadMore(props.key)}>Read More ...</div>}
                 <Typography variant="caption"><a className={classes.cardLink} href={props.link} target={"_blank"} rel="noreferrer">Read More ...</a></Typography>
@@ -142,12 +141,20 @@ export const BlogPostsPage = (props: Props) => {
 
     useEffect(() => {
         setIsLoading(true);
-        Axios.get(mediumURL).then((data) => {
-            const avatar = data.data.feed.image;
-            const profileLink = data.data.feed.link;
-            const res = data.data.items;
+        fetch('https://api.rss2json.com/v1/api.json?'+ new URLSearchParams({
+            rss_url: 'https://medium.com/feed/@jhasubhash',
+            api_key: '3ouqicb6lrfkcwz8megrw88n0yr7rifcftf5sh7c', // put your api key here
+            count: '100'
+            })).then((data) => {
+                console.log(data);
+                return data.json();
+            })
+            .then((data) => {
+            const avatar = data.feed.image;
+            const profileLink = data.feed.link;
+            const res = data.items;
             const posts = res.filter((item: { categories: string | any[]; }) => item.categories.length > 0);
-            const title = data.data.feed.title;
+            const title = data.feed.title;
             setIsLoading(false);
             setAvatar(avatar);
             setProfileLink(profileLink);
