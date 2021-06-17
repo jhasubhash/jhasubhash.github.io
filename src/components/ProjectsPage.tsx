@@ -82,8 +82,8 @@ const useStyles = makeStyles({
         height: '90%', 
         paddingRight:'5px',
         '@media (max-width: 800px)': {
-            width:'50%', 
-            height: '50%', 
+            width:'40%', 
+            height: '40%', 
         }
     }
 });

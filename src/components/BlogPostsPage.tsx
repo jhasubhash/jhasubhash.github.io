@@ -15,10 +15,9 @@ createStyles({
         gap:'2vh',
         alignItems: 'center',
         overflow: 'scroll',
-        height: '100vh',
+        height: '85vh',
         marginTop: '4em',
         '@media (max-width: 800px)': {
-            height: '85vh',
             margin: '0.5em',
         },
     },
@@ -170,7 +169,6 @@ export const BlogPostsPage = (props: Props) => {
     let postUI = [<div></div>];
     if(posts){
         postUI = posts.map((post : any, index) => {
-            console.log(post);
             return getCardElement({
                 title: post.title, 
                 description: post.description, 
