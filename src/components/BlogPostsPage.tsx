@@ -146,7 +146,7 @@ export const BlogPostsPage = (props: Props) => {
             api_key: '3ouqicb6lrfkcwz8megrw88n0yr7rifcftf5sh7c', // put your api key here
             count: '100'
             })).then((data) => {
-                console.log(data);
+                //console.log(data);
                 return data.json();
             })
             .then((data) => {

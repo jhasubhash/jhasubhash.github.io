@@ -135,7 +135,7 @@ export const ProjectsPage = (props: Props) => {
             <div className={classes.codeAnim}>
             <GetCodeAnim/>
             </div>
-            <Carousel showArrows={true} showThumbs={isDesktop()} className={classes.carousel} autoPlay={false} interval={100000} dynamicHeight={false} showStatus={false}>
+            <Carousel showArrows={true} showThumbs={false} className={classes.carousel} autoPlay={false} interval={100000} dynamicHeight={false} showStatus={false}>
             <Card className={classes.card}>
                 <img src={tree} className={classes.img} alt={"project"}/>
                 <CardContent className={classes.cardContent}>
