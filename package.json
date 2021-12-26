@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "deploy": "gh-pages -b out -d out"
+    "deploy": "gh-pages -b next_out -d out"
   },
   "dependencies": {
     "gh-pages": "^3.2.3",
