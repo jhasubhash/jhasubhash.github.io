@@ -23,31 +23,18 @@ export default function Home() {
 
         <div className={styles.grid}>
 
-        <a href="https://nextjs.org/learn" className={styles.card}>
+        <a href="/blog" className={styles.card}>
             <h2>Blog &rarr;</h2>
-            <p>Interested in reading random stuff. Here are my thoughts and opinions on just about everything.</p>
+            <p>Interested in reading random stuff? Here are my thoughts and opinions on just about everything.</p>
           </a>
 
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <a href="/projects" className={styles.card}>
             <h2>Projects &rarr;</h2>
             <p>What are my hobbies. Let us have a look at few of my pet projects. Apps | code | UI Design  </p>
           </a>
 
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://pseudocoder.in"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className={styles.logo}>
-            <img src={require("../images/coder.jpg")} alt="Pseudo Coder" width={40} height={40} />
-          </span>
-          {' '}pseudocoder.in
-        </a>
-      </footer>
     </div>
   )
 }

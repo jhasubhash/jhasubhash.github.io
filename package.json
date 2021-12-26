@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "gh-pages": "^3.2.3",
+    "gray-matter": "^4.0.3",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
+    "marked": "^4.0.8",
     "next": "10.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
@@ -23,5 +25,10 @@
     "@types/node": "^15.12.1",
     "@types/react": "^17.0.9",
     "typescript": "^4.3.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
