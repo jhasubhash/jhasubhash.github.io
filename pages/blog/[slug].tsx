@@ -4,7 +4,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import {marked} from 'marked'
 import Link from 'next/Link'
-//import {hljs} from 'highlight';
+import hljs from "highlight.js";
+
+import 'highlight.js/styles/default.css';
 
 import {
     EmailShareButton,
@@ -19,15 +21,12 @@ import {
     WhatsappIcon
   } from "react-share";
 
-  /*console.log("asadsasd")
 marked.setOptions({
-highlight: function(code, lang) {
-    code = 'var say = "Hello";';
-    lang = 'javascript';
-    console.log(hljs.highlight)
-    return hljs.highlight(lang, code).value;
-}
-});*/
+    langPrefix: "hljs language-",
+    highlight: function(code) {
+      return hljs.highlightAuto(code, ["cpp", "javascript"]).value;
+    }
+});
 
 export default function PostPage({frontMatter : {title, date, cover_image}, slug, content, url}) {
     return <>
