@@ -6,10 +6,7 @@ function Footer() {
     <a
       href="/"
     >
-      <span className={styles.logo}>
-        <img src={require("../images/coder.jpg")} alt="Subhash Jha" width={40} height={40} />
-      </span>
-      {' '}subhashjha.in
+      © subhashjha.in
     </a>
   </footer>;
 }
