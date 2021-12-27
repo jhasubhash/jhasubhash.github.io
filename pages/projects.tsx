@@ -1,5 +1,9 @@
+import Link from "next/Link";
+
 function Projects() {
-    return <></>;
+    return <><Link href='/'>
+    <div className="btn btn-back">Back</div>
+</Link></>;
 }
 
 export default Projects;

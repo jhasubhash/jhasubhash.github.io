@@ -1,5 +1,5 @@
 ---
-title : "Solid"
+title : "SOLID Principles"
 date : "Mon 29 Dec 2021"
 excerpt : "Set of rules each programmer should adhere to in order to make the code more secure, robust and extensible. This is my attempt to make it easier to understand with the help of simple examples."
 cover_image : "/images/posts/solid.jpeg"

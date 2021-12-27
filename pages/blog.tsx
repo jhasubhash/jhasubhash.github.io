@@ -16,6 +16,9 @@ function Blog({ posts }) {
         <Post post={post} id={index}/>
       ))}
     </div>
+    <Link href='/'>
+        <div className="btn btn-back">Back</div>
+    </Link>
     </>
   );
 }
