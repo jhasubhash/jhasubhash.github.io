@@ -5,8 +5,20 @@ import matter from 'gray-matter'
 import {marked} from 'marked'
 import Link from 'next/Link'
 
+import {
+    EmailShareButton,
+    EmailIcon,
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+    FacebookIcon,
+    LinkedinIcon,
+    TwitterIcon,
+    WhatsappIcon
+  } from "react-share";
 
-export default function PostPage({frontMatter : {title, date, cover_image}, slug, content}) {
+export default function PostPage({frontMatter : {title, date, cover_image}, slug, content, url}) {
     return <>
     <Link href='/blog'>
         <div className="btn btn-back">Back</div>
@@ -17,6 +29,13 @@ export default function PostPage({frontMatter : {title, date, cover_image}, slug
         <img src={cover_image} alt=''/>
         <div className="post-body">
             <div dangerouslySetInnerHTML={{__html: marked.parse(content)}}></div>
+        </div>
+        <div className='shareDiv'>
+            <EmailShareButton children={<EmailIcon size={32} round={true}/>} url={url}/>
+            <FacebookShareButton children={<FacebookIcon size={32} round={true}/>} url={url}/>
+            <LinkedinShareButton children={<LinkedinIcon size={32} round={true}/>} url={url}/>
+            <TwitterShareButton children={<TwitterIcon size={32} round={true}/>} url={url}/>
+            <WhatsappShareButton children={<WhatsappIcon size={32} round={true}/>} url={url}/>
         </div>
     </div>
     <Link href='/blog'>
@@ -41,11 +60,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({params : {slug}}) {
     const markdownWithMeta = fs.readFileSync(path.join('posts',slug+'.md'), 'utf-8');
     const {data:frontMatter, content} = matter(markdownWithMeta)
+    const url = 'https://subhashjha.in/blog/'+slug;
     return {
         props : {
             frontMatter,
             slug,
-            content
+            content,
+            url
         }
     }
 }

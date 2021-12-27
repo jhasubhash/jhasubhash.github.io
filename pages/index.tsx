@@ -30,7 +30,7 @@ export default function Home() {
 
           <a href="/projects" className={styles.card}>
             <h2>Projects &rarr;</h2>
-            <p>What are my hobbies. Let us have a look at few of my pet projects. Apps | code | UI Design  </p>
+            <p>What are my hobbies? Let us have a look at few of my pet projects. <br/>Apps | code | UI Design  </p>
           </a>
 
         </div>
