@@ -13,7 +13,7 @@ function Blog({ posts }) {
     </Link>
     <div className="posts">
       {posts.map((post, index) => (
-        <Post post={post} id={index}/>
+        <Post post={post} key={index}/>
       ))}
     </div>
     <Link href='/'>
