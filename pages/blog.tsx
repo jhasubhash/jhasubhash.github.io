@@ -3,14 +3,20 @@ import path from "path";
 import matter from "gray-matter";
 import Post from "../components/Post";
 import {sortByDate} from "../utils";
+import Link from "next/Link";
 
 function Blog({ posts }) {
-  return (
+  return (<>
+  
+  <Link href='/'>
+        <div className="btn btn-back">Back</div>
+    </Link>
     <div className="posts">
       {posts.map((post, index) => (
-        <Post post={post}/>
+        <Post post={post} id={index}/>
       ))}
     </div>
+    </>
   );
 }
 

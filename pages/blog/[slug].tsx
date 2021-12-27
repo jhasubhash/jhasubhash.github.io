@@ -5,20 +5,23 @@ import matter from 'gray-matter'
 import {marked} from 'marked'
 import Link from 'next/Link'
 
+
 export default function PostPage({frontMatter : {title, date, cover_image}, slug, content}) {
     return <>
     <Link href='/blog'>
-        <div className="btn btn-back">Go Back</div>
+        <div className="btn btn-back">Back</div>
     </Link>
     <div className="card card-page">
         <h1 className="post-title">{title}</h1>
         <div className="post-date">Posted on {date}</div>
         <img src={cover_image} alt=''/>
         <div className="post-body">
-            <div dangerouslySetInnerHTML={{__html: marked(content)}}></div>
+            <div dangerouslySetInnerHTML={{__html: marked.parse(content)}}></div>
         </div>
-
     </div>
+    <Link href='/blog'>
+        <div className="btn btn-back">Back</div>
+    </Link>
     </>
 }
 

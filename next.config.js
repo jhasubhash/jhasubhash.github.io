@@ -2,6 +2,12 @@
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 
+const nextConfig = {
+  future: {
+    webpack5: true,
+  },
+}
+
 module.exports = withPlugins([
   [optimizedImages, {
     /* config for next-optimized-images */
@@ -31,7 +37,5 @@ module.exports = withPlugins([
       quality: 75,
     },
   }],
-
-  // your other plugins here
-
+  nextConfig
 ]);

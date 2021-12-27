@@ -37,7 +37,7 @@ header a {
 }
 
 .container {
-  max-width: 768px;
+  max-width: 1200px;
   margin: auto;
   overflow: auto;
   padding: 0 10px;
@@ -72,7 +72,7 @@ header a {
 
 .posts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -112,6 +112,12 @@ ol {
   padding: 20px;
   margin: 20px 0;
   line-height: 2.3;
+}
+
+@media (max-width: 900px) {
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 500px) {
