@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import {marked} from 'marked'
-import Link from 'next/Link'
+import Link from 'next/link'
 import hljs from "highlight.js";
 
 import 'highlight.js/styles/default.css';
