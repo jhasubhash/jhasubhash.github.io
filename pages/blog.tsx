@@ -7,23 +7,25 @@ import Link from "next/Link";
 import Pagination from 'next-pagination'
 import 'next-pagination/dist/index.css'
 import { useRouter } from 'next/router'
+
 let page = 1;
-let size = 20;
+let size = 10;
 function Blog({ posts }) {
   const router = useRouter();
   page = router.query.page ? Number(router.query.page) : page;
   size = router.query.size ? Number(router.query.size) : size;
-  console.log(page+" "+size+" "+posts.length);
   return (<>
   <Link href='/'>
         <div className="btn btn-back">Back</div>
     </Link>
     <div className="posts">
-      {posts.map((post, index) => (
+      {posts.filter((post, index) => (
+          index >= (page-1)*size && index < (page)*size
+      )).map((post, index)=>(
         <Post post={post} key={index}/>
-      ))}
+    ))}
     </div>
-    <Pagination total={posts.length} />
+    <Pagination total={posts.length} sizes={[10,20,30,40]}/>
     <br/>
     <Link href='/'>
         <div className="btn btn-back">Back</div>
