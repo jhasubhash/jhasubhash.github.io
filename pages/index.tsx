@@ -41,7 +41,7 @@ export default function Home() {
         </div>
         <div className={styles.gridPhoto}>
         <a href="/gallery" className={styles.card}>
-          <h2>Gallery &rarr;</h2>
+          <h3>Gallery &rarr;</h3>
           <div className={styles.gridPic}>
            <div className={styles.mainPic}>
           <img src={require("../public/images/others/a.jpg")} alt="pic"/>
@@ -50,7 +50,7 @@ export default function Home() {
           <img src={require("../public/images/others/b.jpg")} alt="pic"/>
           </div>
            <div className={styles.mainPic}>
-          <img src={require("../public/images/others/b.jpg")} alt="pic"/>
+          <img src={require("../public/images/others/c.jpg")} alt="pic"/>
           </div>
            <div className={styles.mainPic}>
           <img src={require("../public/images/others/d.jpg")} alt="pic"/>
