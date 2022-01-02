@@ -124,8 +124,8 @@ const Receipt = () => {
             <div style={{marginTop:'2rem', width:'100%'}}>
                 <div className={styles.rowStyle}>
                     <div>Received a sum of Rs.</div>
-                    <div style={{ width:'80%', borderBottom: '1px solid black', paddingLeft:'1rem', paddingRight:'3rem'}}>
-                    <EditText value={rent} style={{ margin:0, padding:0}} onChange={onRentChange} onEditMode={onRentEdit}/>
+                    <div style={{ width:'80%', borderBottom: '1px solid black', paddingLeft:'1em', paddingRight:'3rem'}}>
+                    <EditText value={rent} style={{ margin:0, padding:0, minHeight:'1rem'}} onChange={onRentChange} onEditMode={onRentEdit}/>
                     </div> 
                     <div>(in words </div>
                     <div style={{width:'100%', borderBottom: '1px solid black'}}></div>
@@ -137,7 +137,7 @@ const Receipt = () => {
                 <div className={styles.rowStyle}>
                     <div>from Mr./Ms/Mrs.</div>
                     <div style={{width:'100%', borderBottom: '1px solid black', paddingLeft:'1rem'}}>
-                        <EditText value={tenantName} onChange={onTenantNameChange} onEditMode={onTenantNameEdit} style={{padding:0, margin:0}}/>
+                        <EditText value={tenantName} onChange={onTenantNameChange} onEditMode={onTenantNameEdit} style={{padding:0, margin:0, minHeight:'1em'}}/>
                     </div>
                     <div>towards rent </div>
                 </div>
@@ -172,20 +172,20 @@ const Receipt = () => {
             <div style={{display:'flex', justifyContent:'space-between', width:'100%', marginTop:'3rem', marginBottom:'3rem'}}>
                 <div style={{display:'flex', flexDirection:'column', width:'50%', alignItems:'center'}}>
                     <div style={{margin:'1rem'}}>Address of the House <br/>for which Rent is paid</div>
-                    <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                        <EditText value={address1} onChange={(val)=>setAddress1(val)} style={{padding:0, margin:0, paddingLeft:'1rem'}}/>
+                    <div style={{width:'100%', borderBottom: '1px solid black', paddingTop:'0.5em'}}>
+                        <EditText value={address1} onChange={(val)=>setAddress1(val)} style={{padding:0, margin:0, paddingLeft:'1rem', minHeight:'1em'}}/>
                     </div>
-                    <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                        <EditText value={address2} onChange={(val)=>setAddress2(val)}  style={{padding:0, margin:0, paddingLeft:'1rem'}}/>
+                    <div style={{width:'100%', borderBottom: '1px solid black', paddingTop:'0.5em'}}>
+                        <EditText value={address2} onChange={(val)=>setAddress2(val)}  style={{padding:0, margin:0, paddingLeft:'1rem', minHeight:'1em'}}/>
                     </div>
-                    <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                        <EditText value={address3} onChange={(val)=>setAddress3(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
+                    <div style={{width:'100%', borderBottom: '1px solid black', paddingTop:'0.5em'}}>
+                        <EditText value={address3} onChange={(val)=>setAddress3(val)} style={{padding:0, margin:0,  paddingLeft:'1rem', minHeight:'1em'}}/>
                     </div>
-                    <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                        <EditText value={address4} onChange={(val)=>setAddress4(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
+                    <div style={{width:'100%', borderBottom: '1px solid black', paddingTop:'0.5em'}}>
+                        <EditText value={address4} onChange={(val)=>setAddress4(val)} style={{padding:0, margin:0,  paddingLeft:'1rem', minHeight:'1em'}}/>
                     </div>
-                    <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                        <EditText value={address5} onChange={(val)=>setAddress5(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
+                    <div style={{width:'100%', borderBottom: '1px solid black', paddingTop:'0.5em'}}>
+                        <EditText value={address5} onChange={(val)=>setAddress5(val)} style={{padding:0, margin:0,  paddingLeft:'1rem', minHeight:'1em'}}/>
                     </div>
                 </div>
                 <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}}>
