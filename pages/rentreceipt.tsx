@@ -10,15 +10,9 @@ import 'react-edit-text/dist/index.css';
 import ImageUploading from "react-images-uploading";
 import { MdClose } from 'react-icons/md';
 import ReactToPdf from 'react-to-pdf'
+import { Card, Button, TextField, Caption } from 'ui-neumorphism'
+import 'ui-neumorphism/dist/index.css'
 
-
-let ownerName = "Amit kumar";
-let ownerPan = "";
-let ownerSign;
-let beginMonth = "April 2021";
-let endMonth ="June 2021"
-let beginDate = "01/04/2021";
-let endDate = "30/06/2021";
 
 interface Props {
     isMobileView?: boolean;
@@ -32,8 +26,8 @@ const RentRecipt: NextPage<Props>  = ({isMobileView}) => {
     const [endDateVal, setEndDateVal] = useState(new Date());
     const [beginDatePanel, setBeginDatePanel] = useState(false);
     const [endDatePanel, setEndDatePanel] = useState(false);
-    const [tenantName, setTenantName] = useState("Enter Tenant Name");
-    const [rent, setRent] = useState("Enter rent");
+    const [tenantName, setTenantName] = useState("");
+    const [rent, setRent] = useState("");
     const [address1, setAddress1] = useState('');
     const [address2, setAddress2] = useState('');
     const [address3, setAddress3] = useState('');
@@ -102,7 +96,6 @@ const RentRecipt: NextPage<Props>  = ({isMobileView}) => {
     }
 
     const onImageChange = (imageList, addUpdateIndex)=>{
-        console.log(imageList)
         setImages(imageList);
     }
 
@@ -131,7 +124,7 @@ const RentRecipt: NextPage<Props>  = ({isMobileView}) => {
     return (
         <>
         <div className={styles.containerStyle}>
-        <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'800px', minWidth:'800px', marginBottom:'100px', marginTop:'50px', padding:'2rem'}} ref={ref}>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'800px', minWidth:'800px', padding:'2rem'}} ref={ref}>
             <h1> RENT RECEIPT</h1>
             <div style={{marginTop:'2rem', width:'100%'}}>
                 <div className={styles.rowStyle}>
@@ -252,53 +245,71 @@ const RentRecipt: NextPage<Props>  = ({isMobileView}) => {
             {printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={backCalled}>Back</div>}
         </div>
     </>);
-    }else {
+    } else {
     return (
-        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between', height:'100%'}}>
+        <Card style={{display:'flex', flexDirection:'column', alignItems:'center', height:'100%', padding:'2rem', minHeight:'100vh'}}>
+            <TextField placeholder='Tenant Name' value={tenantName} onChange={(e)=>onTenantNameChange(e.value)} width={270}/>
+            <TextField placeholder='Monthly Rent' value={rent} onChange={(e)=>onRentChange(e.value)} width={270}/>
+            <TextField placeholder='PAN of Landlord' value={pan} onChange={(e)=>setPan(e.value)} width={270}/>
             <div className={styles.mobileRow}>
-                <input value={tenantName} onChange={onTenantNameChange} style={{padding:0, margin:0}}/>
-            </div>
-            <div className={styles.mobileRow}>
-                <input value={rent} style={{ margin:0, padding:0}} onChange={onRentChange} />
-            </div>
-            <div className={styles.mobileRow}>
+            <div className={styles.mobileCol}>
+                <Caption>From</Caption>
                 <div style={{position:'relative'}}>
-                    {beginDatePanel && <div style={{position:'absolute', zIndex:9}}><Calendar value={beginDateVal} onChange={onBeginDateChange}/></div>}
-                    <div className={styles.dateField} onClick={toggleBeginDate}>{getMonthFormat(beginDateVal)}</div>
+                    {beginDatePanel && <div style={{position:'absolute', zIndex:9, marginLeft:'-2rem'}}><Calendar value={beginDateVal} onChange={onBeginDateChange}/></div>}
+                    <Button  onClick={toggleBeginDate}>{getMonthFormat(beginDateVal)}</Button>
                 </div>
             </div>
-            <div className={styles.mobileRow}>
+            <div className={styles.mobileCol}>
+            <Caption>To</Caption>
                 <div style={{position:'relative'}}>
-                    {endDatePanel && <div style={{position:'absolute', zIndex:9}}><Calendar value={endDateVal} onChange={onEndDateChange}/></div>}
-                    <div className={styles.dateField} onClick={toggleEndDate}>{getMonthFormat(endDateVal)}</div>
+                    {endDatePanel && <div style={{position:'absolute', zIndex:9, marginLeft:'-11rem'}}><Calendar value={endDateVal} onChange={onEndDateChange}/></div>}
+                    <Button  onClick={toggleEndDate}>{getMonthFormat(endDateVal)}</Button>
                 </div>
             </div>
-            <div className={styles.mobileRow}>
-                <input value={pan} onChange={(val)=>setPan(val)} style={{padding:0, margin:0, textAlign:'center', border: '1px solid black'}}/>
             </div>
+            <br/>
             <div style={{display:'flex', flexDirection:'column', width:'100%'}}>
                 <div>Address</div> 
-                <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                    <input value={address1} onChange={(val)=>setAddress1(val)} style={{padding:0, margin:0, paddingLeft:'1rem'}}/>
-                </div>
-                <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                    <input value={address2} onChange={(val)=>setAddress2(val)}  style={{padding:0, margin:0, paddingLeft:'1rem'}}/>
-                </div>
-                <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                    <input value={address3} onChange={(val)=>setAddress3(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
-                </div>
-                <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                    <input value={address4} onChange={(val)=>setAddress4(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
-                </div>
-                <div style={{width:'100%', borderBottom: '1px solid black'}}>
-                    <input value={address5} onChange={(val)=>setAddress5(val)} style={{padding:0, margin:0,  paddingLeft:'1rem'}}/>
-                </div>
+                <TextField value={address1} onChange={(e)=>setAddress1(e.value)} width={270}/>
+                <TextField value={address2} onChange={(e)=>setAddress2(e.value)} width={270}/>
+                <TextField value={address3} onChange={(e)=>setAddress3(e.value)} width={270}/>
+                <TextField value={address4} onChange={(e)=>setAddress4(e.value)} width={270}/>
             </div>
-            <div style={{display:'flex' , justifyContent:'center',}} >
-            {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={confirmCalled}>Confirm</div>}
-            {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={resetCalled}>Reset</div>}
-        </div>
-        </div>
+            <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <ImageUploading
+                value={images}
+                onChange={onImageChange}
+                maxNumber={1}
+                dataURLKey="data_url"
+            >
+                {({
+                    imageList,
+                    onImageUpload,
+                    onImageRemoveAll,
+                    onImageUpdate,
+                    onImageRemove,
+                    isDragging,
+                    dragProps
+                }) => (
+                // write your building UI
+                <div className="upload__image-wrapper">
+                    {imageList.length > 0 && imageList.map((image, index) => (
+                    <div key={index} style={{display:'flex', alignItems:'center'}} >
+                        <img src={image["data_url"]} alt="" style={{width:'180px'}} />
+                        {!printView && <div className={styles.removeSignBtn} onClick={() => onImageRemove(index)}><MdClose/></div>}
+                    </div>
+                    ))}
+                    {!imageList.length && !printView && <Button style={{margin:'1rem'}} onClick={onImageUpload} >Upload Sign</Button>}
+                </div>
+                )}
+            </ImageUploading>
+            <br/>
+            </div>
+            <div style={{display:'flex' , justifyContent:'center'}} >
+            {!printView && <Button onClick={confirmCalled} style={{marginRight:'1rem'}}>Confirm</Button>}
+            {!printView && <Button onClick={resetCalled}>Reset</Button>}
+            </div>
+        </Card>
     );
     }
 }

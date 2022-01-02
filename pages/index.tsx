@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { EmailIcon, LinkedinIcon } from 'react-share'
 import styles from '../styles/Home.module.css'
 import { SiGithub } from 'react-icons/si';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 
@@ -28,6 +28,7 @@ export default function Home() {
           <a href='mailto:subhashjha.mail@gmail.com'><MdEmail size={22}/></a>
           <a href='https://linkedin.com/in/scjha' target='__blank'><FaLinkedin size={20} /></a>
           <a href='https://github.com/jhasubhash' target='__blank'><SiGithub size={20}/></a>
+          <a href='https://twitter.com/subhashjha333' target='__blank'><FaTwitter size={20}/></a>
         </div>
         <div className={styles.grid}>
         <a href="/blog" className={styles.card}>

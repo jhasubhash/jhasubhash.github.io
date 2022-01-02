@@ -48,4 +48,9 @@
     width:100%;
     white-space:nowrap;
   }
-
+  .mobileCol{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    white-space:nowrap;
+  }
