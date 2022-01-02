@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styles from '../styles/Rent.module.css'
 import Calendar from 'react-calendar'
-import { useState } from "react";
+import { createRef, RefObject, useState } from "react";
 import 'react-calendar/dist/Calendar.css'
 import numWords from 'num-words'
 import { EditText } from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
 import ImageUploading from "react-images-uploading";
 import { MdClose } from 'react-icons/md';
-
+import ReactToPdf from 'react-to-pdf'
 
 let ownerName = "Amit kumar";
 let ownerPan = "";
@@ -37,6 +37,7 @@ function RentRecipt() {
     const [images, setImages] = useState([]);
     const [pan, setPan] = useState('');
     const [printView, setPrintView] = useState(false);
+    const ref = createRef() as RefObject<HTMLDivElement>;
 
     const onBeginDateChange = (val)=>{
         console.log(val)
@@ -119,8 +120,9 @@ function RentRecipt() {
         setPrintView(false);
     }
 
-    return <div style={{width:'100%'}}>
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'700px', marginBottom:'100px', marginTop:'50px'}}>
+    return <>
+    <div style={{width:'100%', justifyContent:'center', display:'flex'}} ref={ref}>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'700px', marginBottom:'100px', marginTop:'50px'}} >
         <h1> RENT RECEIPT</h1>
         <div style={{marginTop:'2rem', width:'100%'}}>
             <div className={styles.rowStyle}>
@@ -228,14 +230,19 @@ function RentRecipt() {
                 </div>
             </div>
         </div>
-        <div style={{display:'flex'}} >
-            {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={confirmCalled}>Confirm</div>}
-            {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={resetCalled}>Reset</div>}
-            {printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={printCalled}>Print</div>}
-            {printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={backCalled}>Back</div>}
-        </div>
     </div>
-    </div>;
+    </div>
+    <div style={{display:'flex' , justifyContent:'center',}} >
+        {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={confirmCalled}>Confirm</div>}
+        {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={resetCalled}>Reset</div>}
+        {printView &&  <ReactToPdf  x={-50} targetRef={ref} filename="rent-receipt.pdf">
+            {({toPdf}) => (
+                <div className="btn btn-back" style={{margin:'1rem'}} onClick={toPdf}>Print</div>
+            )}
+        </ReactToPdf>}
+        {printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={backCalled}>Back</div>}
+    </div>
+    </>;
 }
 
 export default RentRecipt;
