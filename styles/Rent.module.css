@@ -28,3 +28,17 @@
 .removeSignBtn:hover  {
     cursor: pointer;
 }
+
+.containerStyle {
+    width:100%;
+    justify-content:center;
+    display:flex;
+    overflow:scroll;
+}
+
+@media (max-width: 800px) {
+    .containerStyle {
+        justify-content:start;
+    }
+  }
+

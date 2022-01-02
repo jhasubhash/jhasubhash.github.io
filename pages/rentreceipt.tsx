@@ -121,8 +121,9 @@ function RentRecipt() {
     }
 
     return <>
-    <div style={{width:'100%', justifyContent:'center', display:'flex'}} ref={ref}>
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'700px', marginBottom:'100px', marginTop:'50px'}} >
+    <div  >
+    <div className={styles.containerStyle}>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center', width:'800px', minWidth:'800px', marginBottom:'100px', marginTop:'50px', padding:'2rem'}} ref={ref}>
         <h1> RENT RECEIPT</h1>
         <div style={{marginTop:'2rem', width:'100%'}}>
             <div className={styles.rowStyle}>
@@ -232,10 +233,11 @@ function RentRecipt() {
         </div>
     </div>
     </div>
+    </div>
     <div style={{display:'flex' , justifyContent:'center',}} >
         {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={confirmCalled}>Confirm</div>}
         {!printView && <div className="btn btn-back" style={{margin:'1rem'}} onClick={resetCalled}>Reset</div>}
-        {printView &&  <ReactToPdf  x={-50} targetRef={ref} filename="rent-receipt.pdf">
+        {printView &&  <ReactToPdf options={{w:1200}} targetRef={ref} filename="rent-receipt.pdf">
             {({toPdf}) => (
                 <div className="btn btn-back" style={{margin:'1rem'}} onClick={toPdf}>Print</div>
             )}
