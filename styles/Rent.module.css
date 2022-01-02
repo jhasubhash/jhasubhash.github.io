@@ -42,3 +42,10 @@
     }
   }
 
+  .mobileRow {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    white-space:nowrap;
+  }
+
