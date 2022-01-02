@@ -151,8 +151,8 @@ const Receipt = () => {
                                 </div>}
                                 <div className={styles.dateField} onClick={toggleBeginDate}>{getMonthFormat(beginDateVal)}</div>
                             </div>
-                            <div style={{position:'relative', width:'70px'}}>
-                            <div style={{position:'absolute', paddingLeft:'1rem', paddingRight:'1rem'}}>-</div>
+                            <div style={{position:'relative', width:'50px'}}>
+                            <div style={{paddingLeft:'1rem', paddingRight:'1rem'}}>-</div>
                             </div>
                             <div style={{position:'relative', width:'70px'}}>
                                 {endDatePanel && <div style={{position:'absolute', zIndex:9}}><Calendar value={endDateVal} onChange={onEndDateChange}/></div>}
@@ -211,7 +211,6 @@ const Receipt = () => {
                             isDragging,
                             dragProps
                         }) => (
-                        // write your building UI
                         <div className="upload__image-wrapper">
                             {imageList.length > 0 && imageList.map((image, index) => (
                             <div key={index} style={{display:'flex', alignItems:'center'}} >
@@ -265,10 +264,10 @@ const Receipt = () => {
             <br/>
             <div style={{display:'flex', flexDirection:'column', width:'100%'}}>
                 <div>Address</div> 
-                <TextField value={address1} onChange={(e)=>setAddress1(e.value)} width={270}/>
-                <TextField value={address2} onChange={(e)=>setAddress2(e.value)} width={270}/>
-                <TextField value={address3} onChange={(e)=>setAddress3(e.value)} width={270}/>
-                <TextField value={address4} onChange={(e)=>setAddress4(e.value)} width={270}/>
+                <TextField value={address1} placeholder='Flat No.' onChange={(e)=>setAddress1(e.value)} width={270}/>
+                <TextField value={address2} placeholder='Building/Society' onChange={(e)=>setAddress2(e.value)} width={270}/>
+                <TextField value={address3} placeholder='Locality' onChange={(e)=>setAddress3(e.value)} width={270}/>
+                <TextField value={address4} placeholder='District/State' onChange={(e)=>setAddress4(e.value)} width={270}/>
             </div>
             <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <ImageUploading
