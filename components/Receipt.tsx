@@ -127,7 +127,7 @@ const Receipt = () => {
                     <div style={{ width:'80%', borderBottom: '1px solid black', paddingLeft:'1em', paddingRight:'3rem'}}>
                     <EditText value={rent} style={{ margin:0, padding:0, minHeight:'1rem'}} onChange={onRentChange} onEditMode={onRentEdit}/>
                     </div> 
-                    <div>(in words </div>
+                    <div>P.M (in words </div>
                     <div style={{width:'100%', borderBottom: '1px solid black'}}></div>
                 </div>
                 <div className={styles.rowStyle}>
