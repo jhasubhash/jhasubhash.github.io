@@ -118,6 +118,9 @@ ol {
   margin: 20px 0;
   line-height: 2.3;
 }
+.post-body {
+ font-family: 'Times New Roman', Times, serif;
+}
 
 @media (max-width: 900px) {
   .posts {
@@ -132,9 +135,12 @@ ol {
 }
 
 .shareDiv > *{
-  margin-right: 10px;
+  margin-right: 1.5rem;
 }
 .shareDiv {
+  padding-top: 1rem;
   display: flex;
   flex-direction: row-reverse;
 }
+
+img[alt=small_box] { width: 200px; }

@@ -32,11 +32,11 @@ export default function Home() {
         </div>
         <div className={styles.grid}>
         <a href="/blog" className={styles.card}>
-            <h2>Blog &rarr;</h2>
+            <h2 style={{fontFamily:'cursive'}}>Blog</h2>
             <p>Interested in reading random stuff? Here are my thoughts and opinions on just about everything.</p>
           </a>
           <a href="/projects" className={styles.card}>
-            <h2>Projects &rarr;</h2>
+            <h2 style={{fontFamily:'monospace'}}>Projects</h2>
             <p>What are my hobbies? Let us have a look at few of my pet projects. <br/>Apps | code | UI Design  </p>
           </a>
         </div>
