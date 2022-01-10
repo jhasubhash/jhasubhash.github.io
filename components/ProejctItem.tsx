@@ -1,16 +1,60 @@
 import Link from "next/link";
+import styled from "styled-components"
+import { lighten, darken } from 'polished'
+import {getShadowColor} from '../config/themeConfig'
+
+
+const ProjectCard = styled.a`
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 ${({ theme }) => getShadowColor(theme, 0.70, theme.text)};
+    display:flex;
+    justify-content:space-between;
+    transition: 0.2s box-shadow;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 4px 8px 0 ${({ theme }) => getShadowColor(theme,0.60, theme.text)};
+    }
+`;
+
+const ProjectCardBody = styled.div`
+    padding-left: 2rem;
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+`;
+
+const ProjectImage = styled.img`
+    width: 20%;
+    height: 100%;
+    min-height: 50px;
+`;
+
+const ProjectTitle = styled.div`
+    font-size : 1.2rem;
+`;
+
+const ProjectDesc= styled.div`
+    font-size : 0.8rem;
+    color: ${({ theme }) => darken(0.30, theme.text)};
+    padding-top: 0.5rem;
+`;
+
 
 function ProjectItem({project}) {
-    return <div className='card' style={{display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
-        <img src={project.frontMatter.cover_image} alt=" "/>
-        &nbsp;
-        <h3>{project.frontMatter.title}</h3>
-        <p style={{color:'grey'}}>{project.frontMatter.excerpt}</p>
+    return <ProjectCard href={project.frontMatter.web_url} target="__blank">
+        <ProjectImage src={project.frontMatter.cover_image} alt=" "/>
+        <ProjectCardBody>
+        <ProjectTitle>{project.frontMatter.title}</ProjectTitle>
+        <ProjectDesc>{project.frontMatter.excerpt}</ProjectDesc>
+        {/** 
         <div style={{display:'flex', justifyContent:'space-between'}}>
         <a className="btn" style={{borderRadius: '5px'}} href={project.frontMatter.web_url} target="_blank"><code>Check it out</code></a>
         <a className="btn" style={{borderRadius: '5px'}} href={project.frontMatter.code_url} target="_blank"><code>source_code</code></a>
         </div>
-        </div>
+        */}
+        </ProjectCardBody>
+        </ProjectCard>
 }
 
 export default ProjectItem;

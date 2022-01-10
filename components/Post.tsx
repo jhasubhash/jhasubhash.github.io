@@ -1,8 +1,15 @@
 import Link from "next/link";
+import styled from "styled-components"
+
+
+const PostImage = styled.img`
+    width: 100%;
+    border-radius: 10px;
+`;
 
 function Post({post}) {
     return <div className='card'>
-        <img src={post.frontMatter.cover_image} alt=" "/>
+        <PostImage src={post.frontMatter.cover_image} alt=" "/>
         <div className="post-date">Posted on {post.frontMatter.date}</div>
         <h3>{post.frontMatter.title}</h3>
         <p style={{color:'grey'}}>{post.frontMatter.excerpt}</p>

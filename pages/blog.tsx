@@ -31,7 +31,7 @@ function Blog({ posts }) {
         <Post post={post} key={index}/>
     ))}
     </div>
-    <Pagination total={posts.length} sizes={[9,18,27,36]}/>
+    <Pagination total={posts.length} sizes={[9,18,27,36]} />
     <br/>
     <Link href='/'>
         <div className="btn btn-back">Back</div>

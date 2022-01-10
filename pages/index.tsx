@@ -16,9 +16,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <img src={require("../images/profile.JPG")} alt="Subhash Jha" width={200} height={200} className='avatar'/>
+        <br/>
+        <h4 className={styles.title}>
           I am Subhash Jha
-        </h1>
+        </h4>
 
         <p className={styles.description}>
           Software Developer<br/><br/>
@@ -29,35 +31,6 @@ export default function Home() {
           <a href='https://linkedin.com/in/scjha' target='__blank'><FaLinkedin size={20} /></a>
           <a href='https://github.com/jhasubhash' target='__blank'><SiGithub size={20}/></a>
           <a href='https://twitter.com/subhashjha333' target='__blank'><FaTwitter size={20}/></a>
-        </div>
-        <div className={styles.grid}>
-        <a href="/blog" className={styles.card}>
-            <h2 style={{fontFamily:'cursive'}}>Blog</h2>
-            <p>Interested in reading random stuff? Here are my thoughts and opinions on just about everything.</p>
-          </a>
-          <a href="/projects" className={styles.card}>
-            <h2 style={{fontFamily:'monospace'}}>Projects</h2>
-            <p>What are my hobbies? Let us have a look at few of my pet projects. <br/>Apps | code | UI Design  </p>
-          </a>
-        </div>
-        <div className={styles.gridPhoto}>
-        <a href="/gallery" className={styles.card}>
-          <h3>Gallery &rarr;</h3>
-          <div className={styles.gridPic}>
-           <div className={styles.mainPic}>
-          <img src={require("../public/images/others/a.jpg")} alt="pic"/>
-          </div>
-           <div className={styles.mainPic}>
-          <img src={require("../public/images/others/b.jpg")} alt="pic"/>
-          </div>
-           <div className={styles.mainPic}>
-          <img src={require("../public/images/others/c.jpg")} alt="pic"/>
-          </div>
-           <div className={styles.mainPic}>
-          <img src={require("../public/images/others/d.jpg")} alt="pic"/>
-          </div>
-          </div>
-        </a>
         </div>
       </main>
     </div>

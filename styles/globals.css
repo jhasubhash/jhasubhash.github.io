@@ -17,24 +17,13 @@ p {
 
 a {
   text-decoration: none;
-  color: #333;
-}
-
-img {
-  width: 100%;
-  border-radius: 10px;
 }
 
 header {
-  background: steelblue;
-  color: #fff;
   padding: 5px;
   margin-bottom: 40px;
 }
 
-header a {
-  color: #fff;
-}
 
 .container {
   max-width: 1200px;
@@ -43,12 +32,9 @@ header a {
   padding: 0 10px;
 }
 
+
 .btn {
   display: inline-block;
-  background: #f4f4f4;
-  color: #000;
-  border: none;
-  border-color: steelblue;
   padding: 8px 16px;
   border-radius: 2px;
   cursor: pointer;
@@ -66,8 +52,6 @@ header a {
 }
 
 .btn-back {
-  background: #f4f4f4;
-  color: #000;
   margin-bottom: 20px;
 }
 
@@ -95,7 +79,6 @@ header a {
 }
 
 .post-date {
-  background: #f4f4f4;
   margin-bottom: 20px;
   padding: 3px 10px;
 }
@@ -113,7 +96,6 @@ ol {
 }
 
 .post-body pre {
-  background: #f4f4f4;
   padding: 20px;
   margin: 20px 0;
   line-height: 2.3;
@@ -134,9 +116,30 @@ ol {
   }
 }
 
+.projectbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+  .projectbox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .projectbox {
+    grid-template-columns: 1fr;
+  }
+}
+
 .shareDiv > *{
   margin-right: 1.5rem;
 }
+
 .shareDiv {
   padding-top: 1rem;
   display: flex;
