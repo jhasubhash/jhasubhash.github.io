@@ -4,6 +4,15 @@ import Footer from '../components/Footer'
 import { ThemeProvider } from "styled-components"
 import { useState } from 'react'
 import { lightTheme, darkTheme, GlobalStyles } from "../config/themeConfig" 
+import styled from "styled-components"
+
+
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
@@ -12,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     theme == 'light' ? setTheme('dark') : setTheme('light')
   }
 
-  return <>
+  return <Wrapper>
   <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
   <GlobalStyles />
   <Header toggleTheme={toggleTheme}/>
@@ -21,7 +30,7 @@ function MyApp({ Component, pageProps }) {
   </main>
   <Footer/>
   </ThemeProvider>
-  </>
+  </Wrapper>
 }
 
 export default MyApp

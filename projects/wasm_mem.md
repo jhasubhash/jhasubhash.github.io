@@ -5,4 +5,5 @@ excerpt : "Check total wasm memory in browser."
 cover_image : "/images/projects/wasm.png"
 code_url : "https://github.com/jhasubhash/memtracker"
 web_url : "https://subhashjha.in/memtracker/"
+tags : "webassembly,webapp"
 --- 

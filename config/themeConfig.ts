@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
+    oveflow-x: hidden;
   }
 
   a {
@@ -41,7 +42,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .linkinactive{
-    color: ${({ theme }) => getShadowColor(theme, 0.40, theme.text)};
+    color: ${({ theme }) => getShadowColor(theme, 0.25, theme.text)};
   }
 
   .avatar {

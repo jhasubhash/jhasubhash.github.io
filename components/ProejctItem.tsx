@@ -40,13 +40,33 @@ const ProjectDesc= styled.div`
     padding-top: 0.5rem;
 `;
 
+const TagContainer = styled.div`
+    display : flex;
+`;
+
+
+const Tag = styled.div`
+    margin-right: 0.3rem;
+    margin-top: 0.6rem;
+    font-size : 0.7rem;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+    border-radius: 0.2rem;
+    background: ${({ theme }) => getShadowColor(theme, 0.70, theme.text)};
+    white-space: nowrap;
+`;
 
 function ProjectItem({project}) {
+    const tags = project.frontMatter.tags.length ? project.frontMatter.tags.split(",") : [];
     return <ProjectCard href={project.frontMatter.web_url} target="__blank">
         <ProjectImage src={project.frontMatter.cover_image} alt=" "/>
         <ProjectCardBody>
         <ProjectTitle>{project.frontMatter.title}</ProjectTitle>
         <ProjectDesc>{project.frontMatter.excerpt}</ProjectDesc>
+        <TagContainer>
+        { tags.map((tag, index) => (
+                <Tag key={index}>{tag}</Tag>
+        ))}
+        </TagContainer>
         {/** 
         <div style={{display:'flex', justifyContent:'space-between'}}>
         <a className="btn" style={{borderRadius: '5px'}} href={project.frontMatter.web_url} target="_blank"><code>Check it out</code></a>
