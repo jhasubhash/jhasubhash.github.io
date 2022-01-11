@@ -33,7 +33,7 @@ function Header(props) {
         <Link href='/blog'>
             <a className={router.pathname != "/blog" ? "linkinactive" : ""}>Blog</a>
         </Link>
-        <Link href='/'>
+        <Link href='/contact'>
             <a className={router.pathname != "/contact" ? "linkinactive" : ""}> Contact</a>
         </Link>
         <a style={{position:'absolute', right:'0.5rem', top:'0.5rem'}} onClick={props.toggleTheme}><CgDarkMode/></a>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components"
+import {getShadowColor} from '../config/themeConfig'
 
 
 const PostImage = styled.img`
@@ -7,10 +8,17 @@ const PostImage = styled.img`
     border-radius: 10px;
 `;
 
+const PostDate = styled.div`
+    margin-bottom: 20px;
+    padding: 3px 10px;
+    background-color: ${({ theme }) => getShadowColor(theme,0.70, theme.text)};
+`;
+
+
 function Post({post}) {
     return <div className='card'>
         <PostImage src={post.frontMatter.cover_image} alt=" "/>
-        <div className="post-date">Posted on {post.frontMatter.date}</div>
+        <PostDate>Posted on {post.frontMatter.date}</PostDate>
         <h3>{post.frontMatter.title}</h3>
         <p style={{color:'grey'}}>{post.frontMatter.excerpt}</p>
         <Link href={`/blog/${post.slug}`}>
