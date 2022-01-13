@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
@@ -24,15 +24,13 @@ header {
   margin-bottom: 40px;
 }
 
-
 .container {
   max-width: 1200px;
   margin: auto;
   overflow: auto;
   padding: 0 10px;
-  margin-top:0;
+  margin-top: 0;
 }
-
 
 .btn {
   display: inline-block;
@@ -85,7 +83,7 @@ header {
 }
 
 pre {
-  overflow : scroll
+  overflow: scroll;
 }
 
 .post-body ul,
@@ -102,7 +100,7 @@ ol {
   line-height: 2.3;
 }
 .post-body {
- font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 @media (max-width: 900px) {
@@ -131,14 +129,6 @@ ol {
   }
 }
 
-.shareDiv > *{
-  margin-right: 1.5rem;
+img[alt="small_box"] {
+  width: 200px;
 }
-
-.shareDiv {
-  padding-top: 1rem;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-img[alt=small_box] { width: 200px; }

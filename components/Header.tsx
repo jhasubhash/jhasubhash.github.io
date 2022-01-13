@@ -108,16 +108,16 @@ function Header(props) {
         <ToggleBtn aria-controls='primary-nav' aria-expanded='false' onClick={toggleNav} ref={btnRef}>{navVisible? <MdClose size={'1.2rem'}/> :<MdMenu size={'1.2rem'}/>}</ToggleBtn>
         <HeaderContainer id="primary-nav" data-visible='false' ref={ref}>
         <Link href='/'>
-            <a className={router.pathname != "/" ? "linkinactive" : ""}> Home</a>
+            <a className={router.pathname != "/" ? "linkinactive" : ""} onClick={hideNav}> Home</a>
         </Link>
         <Link href='/projects'>
-            <a className={router.pathname != "/projects" ? "linkinactive" : ""}>Projects</a>
+            <a className={router.pathname != "/projects" ? "linkinactive" : ""} onClick={hideNav}>Projects</a>
         </Link>
         <Link href='/blog'>
-            <a className={router.pathname != "/blog" ? "linkinactive" : ""}>Blog</a>
+            <a className={router.pathname != "/blog" ? "linkinactive" : ""} onClick={hideNav}>Blog</a>
         </Link>
         <Link href='/contact'>
-            <a className={router.pathname != "/contact" ? "linkinactive" : ""}> Contact</a>
+            <a className={router.pathname != "/contact" ? "linkinactive" : ""} onClick={hideNav}> Contact</a>
         </Link>
         <ToggleMode onClick={props.toggleTheme}><CgDarkMode/></ToggleMode>
         </HeaderContainer>
