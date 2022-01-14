@@ -32,24 +32,6 @@ header {
   margin-top: 0;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:hover {
-  transform: scale(0.98);
-}
-
 .btn-back {
   margin-bottom: 20px;
 }
@@ -62,45 +44,8 @@ header {
   margin-bottom: 30px;
 }
 
-.card {
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card-page {
-  padding: 15px 30px;
-  margin-bottom: 30px;
-}
-
-.post-title {
-  margin: 10px 0;
-}
-
-.post-date {
-  margin-bottom: 20px;
-  padding: 3px 10px;
-}
-
 pre {
   overflow: scroll;
-}
-
-.post-body ul,
-ol {
-  font-size: 110%;
-  line-height: 2.3;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.post-body pre {
-  padding: 20px;
-  margin: 20px 0;
-  line-height: 2.3;
-}
-.post-body {
-  font-family: "Times New Roman", Times, serif;
 }
 
 @media (max-width: 900px) {

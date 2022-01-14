@@ -21,6 +21,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
+import { getShadowColor } from "../../config/themeConfig";
 
 const ShareDiv = styled.div`
   margin-top: 2rem;
@@ -36,6 +37,43 @@ marked.setOptions({
   },
 });
 
+const PostCardPage = styled.div`
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0
+    ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
+  padding: 15px 30px;
+  margin-bottom: 30px;
+`;
+
+const PostDate = styled.div`
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding: 3px 10px;
+  background-color: ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
+`;
+
+const PostTitle = styled.h3`
+  font-size: 1.2rem;
+`;
+
+const PostBody = styled.div`
+  ul,
+  ol {
+    font-size: 110%;
+    line-height: 2.3;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  &:pre {
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 2.3;
+  }
+  font-size: 0.9rem;
+`;
+
 export default function PostPage({
   frontMatter: { title, date, cover_image },
   slug,
@@ -47,15 +85,15 @@ export default function PostPage({
       <Link href="/blog">
         <div className="btn btn-back">Back</div>
       </Link>
-      <div className="card card-page">
-        <h1 className="post-title">{title}</h1>
-        <div className="post-date">Posted on {date}</div>
-        <img src={cover_image} alt="" />
-        <div className="post-body">
+      <PostCardPage>
+        <PostTitle>{title}</PostTitle>
+        <PostDate>Posted on {date}</PostDate>
+        <img style={{ width: "100%" }} src={cover_image} alt="" />
+        <PostBody>
           <div
             dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
           ></div>
-        </div>
+        </PostBody>
         <ShareDiv>
           <EmailShareButton
             children={<EmailIcon size={32} round={true} />}
@@ -78,7 +116,7 @@ export default function PostPage({
             url={url}
           />
         </ShareDiv>
-      </div>
+      </PostCardPage>
       <Link href="/blog">
         <div className="btn btn-back">Back</div>
       </Link>

@@ -2,11 +2,11 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Post from "../components/Post";
-import {sortByDate} from "../utils";
+import { sortByDate } from "../utils";
 import Link from "next/link";
-import Pagination from 'next-pagination'
-import 'next-pagination/dist/index.css'
-import { useRouter } from 'next/router'
+import Pagination from "next-pagination";
+import "next-pagination/dist/index.css";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 let page = 1;
@@ -15,27 +15,32 @@ function Blog({ posts }) {
   const router = useRouter();
   page = router.query.page ? Number(router.query.page) : page;
   size = router.query.size ? Number(router.query.size) : size;
-  return (<>
-  <Head>
+  return (
+    <>
+      <Head>
         <title>Blog</title>
         <meta name="description" content="Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-  <Link href='/'>
-        <div className="btn btn-back">Back</div>
-    </Link>
-    <div className="posts">
-      {posts.filter((post, index) => (
-          index >= (page-1)*size && index < (page)*size
-      )).map((post, index)=>(
-        <Post post={post} key={index}/>
-    ))}
-    </div>
-    <Pagination total={posts.length} sizes={[9,18,27,36]} />
-    <br/>
-    <Link href='/'>
-        <div className="btn btn-back">Back</div>
-    </Link>
+      <p>
+        <span style={{ color: "grey", fontSize: "0.8rem" }}>
+          <i>
+            " Interested in reading random stuff? Here are my thoughts and
+            opinions on just about everything. "
+          </i>
+        </span>
+      </p>
+      <div className="posts">
+        {posts
+          .filter(
+            (post, index) => index >= (page - 1) * size && index < page * size
+          )
+          .map((post, index) => (
+            <Post post={post} key={index} />
+          ))}
+      </div>
+      <Pagination total={posts.length} sizes={[9, 18, 27, 36]} />
+      <br />
     </>
   );
 }
