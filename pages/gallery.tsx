@@ -8,9 +8,50 @@ import path from "path";
 import matter from "gray-matter";
 import { sortByDate } from "../utils";
 
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+import { useState } from "react";
+
+import { isMobile } from 'react-device-detect';
+
+
+import styled from "styled-components";
+
+const PhotoImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`;
+
+const SliderContainer = styled.div`
+width:100vw;
+height:100vh;
+position:absolute;
+top:0;
+left:0;
+backdrop-filter: brightness(0.4);
+align-items: center;
+justify-content: center;
+display:flex;
+`
+
+
 let page = 1;
 let size = 9;
 function Gallery({photos}) {
+  const [picClicked, setPicClicked] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onPicClicked = (index) => {
+    setSelectedIndex(index);
+    setPicClicked(true);
+  }
+
+  const onPicClose = (event) => {
+    if(event.target.id=="container"){
+      setSelectedIndex(0);
+      setPicClicked(false);
+    }
+  }
 
     return (
         <>
@@ -19,25 +60,45 @@ function Gallery({photos}) {
         <meta name="description" content="Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p>
-        <span style={{ color: "grey", fontSize: "0.8rem" }}>
-          <i>
-            "A picture is worth a thousand words."
-          </i>
-        </span>
-      </p>
-      <div className="posts">
-        {photos
-          .filter(
-            (post, index) => index >= (page - 1) * size && index < page * size
-          )
-          .map((post, index) => (
-            <PhotoContainer imageInfo={photos} key={index} />
-          ))}
+      <div>
+      {
+          !isMobile && picClicked &&
+          <SliderContainer onClick={onPicClose} id={'container'}>
+          <div style={{width:'60vw'}}>
+          <AwesomeSlider selected={selectedIndex}>
+            {photos.map((photo, index) => (
+              <div key={index}>
+                <PhotoImage src={photo.frontMatter.image}/>
+              </div>
+            ))}
+          </AwesomeSlider>
+          </div>
+          </SliderContainer>
+        }
+        {  (isMobile || !picClicked) &&
+          <>
+          <p>
+            <span style={{ color: "grey", fontSize: "0.8rem" }}>
+              <i>
+                "A picture is worth a thousand words."
+              </i>
+            </span>
+          </p>
+          <div className="posts">
+            {photos
+              .filter(
+                (photo, index) => index >= (page - 1) * size && index < page * size
+              )
+              .map((photo, index) => (
+                <PhotoContainer imageInfo={photo} key={index} picIndex={index} onPicClick={onPicClicked}/>
+              ))}
+          </div>
+          <Pagination total={photos.length} sizes={[9, 18, 27, 36]} />
+          </>
+        }
       </div>
-      <Pagination total={photos.length} sizes={[9, 18, 27, 36]} />
       <br />
-    </>
+      </>
     );
 }
 
