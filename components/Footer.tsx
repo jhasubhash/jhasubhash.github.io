@@ -1,5 +1,4 @@
-
-import styled from "styled-components"
+import styled from "styled-components";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -12,15 +11,17 @@ const FooterContainer = styled.div`
     align-items: center;
     flex-grow: 1;
   }
+  margin-bottom: 1rem;
 `;
 
-
 function Footer() {
-    return <footer>
+  return (
+    <footer>
       <FooterContainer>
         <a href="/"> © subhashjha.in </a>
       </FooterContainer>
-    </footer>;
+    </footer>
+  );
 }
 
 export default Footer;

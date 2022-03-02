@@ -25,8 +25,8 @@ function Blog({ posts }) {
       <p>
         <span style={{ color: "grey", fontSize: "0.8rem" }}>
           <i>
-            " Interested in reading random stuff? Here are my thoughts and
-            opinions on just about everything. "
+            "Interested in reading random stuff? Here are my thoughts and
+            opinions on just about everything."
           </i>
         </span>
       </p>
