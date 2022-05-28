@@ -113,9 +113,6 @@ function Header(props) {
         <Link href='/projects'>
             <a className={router.pathname != "/projects" ? "linkinactive" : ""} onClick={hideNav}>Projects</a>
         </Link>
-        <Link href='/gallery'>
-            <a className={router.pathname != "/gallery" ? "linkinactive" : ""} onClick={hideNav}>Gallery</a>
-        </Link>
         <Link href='/blog'>
             <a className={router.pathname != "/blog" ? "linkinactive" : ""} onClick={hideNav}>Blog</a>
         </Link>
