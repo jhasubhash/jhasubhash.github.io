@@ -54,8 +54,8 @@ const Tag = styled.div`
   margin-right: 0.3rem;
   margin-top: 0.6rem;
   font-size: 0.7rem;
-  padding: 0.1rem 0.3rem 0.1rem 0.3rem;
-  border-radius: 0.2rem;
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  border-radius: 16px;
   background: ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
   white-space: nowrap;
 `;
