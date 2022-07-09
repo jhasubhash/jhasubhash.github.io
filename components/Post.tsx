@@ -22,6 +22,19 @@ const PostCard = styled.div`
     ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
 `;
 
+const PostPreviewCard = styled.a`
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0
+    ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
+  transition: 0.2s box-shadow;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 4px 8px 0
+      ${({ theme }) => getShadowColor(theme, 0.6, theme.text)};
+  }
+`;
+
 const PostTitle = styled.h3`
   font-size: 1rem;
 `;
@@ -35,18 +48,29 @@ const MoreBtn = styled.a`
   font-size: 0.7rem;
 `;
 
-function Post({ post }) {
-  return (
-    <PostCard>
-      <PostImage src={post.frontMatter.cover_image} alt=" " />
-      <PostDate>Posted on {post.frontMatter.date}</PostDate>
-      <PostTitle>{post.frontMatter.title}</PostTitle>
-      <PostExcerpt>{post.frontMatter.excerpt}</PostExcerpt>
-      <Link href={`/blog/${post.slug}`}>
-        <MoreBtn className="btn">Read More</MoreBtn>
-      </Link>
-    </PostCard>
-  );
+const PreviewDisplay = (props) => {
+  return <Link href={`/blog/${props.post.slug}`}>
+    <PostPreviewCard>
+      <PostTitle>{props.post.frontMatter.title}</PostTitle>
+      <PostExcerpt>{props.post.frontMatter.excerpt}</PostExcerpt>
+    </PostPreviewCard>
+  </Link>
+}
+
+const CompleteDisplay = (props) => {
+  return <PostCard>
+    <PostImage src={props.post.frontMatter.cover_image} alt=" " />
+    <PostDate>Posted on {props.post.frontMatter.date}</PostDate>
+    <PostTitle>{props.post.frontMatter.title}</PostTitle>
+    <PostExcerpt>{props.post.frontMatter.excerpt}</PostExcerpt>
+    <Link href={`/blog/${props.post.slug}`}>
+      <MoreBtn className="btn">Read More</MoreBtn>
+    </Link>
+  </PostCard>
+}
+
+function Post({ post, preview }) {
+  return preview ? <PreviewDisplay post={post} /> : <CompleteDisplay post={post} />;
 }
 
 export default Post;

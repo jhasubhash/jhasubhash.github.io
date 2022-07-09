@@ -20,15 +20,14 @@ a {
 }
 
 header {
-  padding: 5px;
-  margin-bottom: 40px;
+  padding: 1rem;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
   overflow: auto;
-  padding: 0 10px;
+  padding: 0 1rem;
   margin-top: 0;
 }
 

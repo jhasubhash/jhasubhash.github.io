@@ -87,9 +87,6 @@ export default function PostPage({
       <title>{title}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-      <Link href="/blog">
-        <div className="btn btn-back">Back</div>
-      </Link>
       <PostCardPage>
         <PostTitle>{title}</PostTitle>
         <PostDate>Posted on {date}</PostDate>
@@ -122,9 +119,6 @@ export default function PostPage({
           />
         </ShareDiv>
       </PostCardPage>
-      <Link href="/blog">
-        <div className="btn btn-back">Back</div>
-      </Link>
     </>
   );
 }

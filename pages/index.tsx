@@ -1,11 +1,20 @@
 import Head from "next/head";
-import { EmailIcon, LinkedinIcon } from "react-share";
 import styles from "../styles/Home.module.css";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import styled from "styled-components";
 import { getShadowColor } from "../config/themeConfig";
+
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import Post from "../components/Post";
+import { sortByDate } from "../utils";
+
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import ProjectItem from "../components/ProejctItem";
 
 const CodeDiv = styled.code`
   border-radius: 5px;
@@ -27,14 +36,89 @@ const DescDiv = styled.p`
   font-size: 1.25rem;
 `;
 
+const ProjectDiv = styled.div`
+display: flex;
+flex-direction: column;
+margin-top: 1rem;
+margin-bottom: 1rem;
+width:100%;
+`;
+
+const BlogDiv = styled.div`
+display: flex;
+flex-direction: column;
+margin-top: 1rem;
+margin-bottom: 1rem;
+`;
+
+const InfoDiv = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
+
+
+const HeroDiv = styled.div`
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+justify-items: center;
+padding: 5rem;
+padding-bottom: 7rem;
+gap:2rem;
+@media (max-width: 900px) {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0rem;
+  padding-bottom: 2rem;
+}
+`;
+
 const ShareDiv = styled.div`
-  margin-top: 2rem;
+padding-top:2rem;
   display: flex;
-  flex-direction: row-reverse;
   gap: 2rem;
 `;
 
-export default function Home() {
+const MoreBtn = styled.a`
+  font-size: 0.7rem;
+  width: fit-content;
+  margin-left: auto;
+  border-radius: 10%;
+`;
+
+const PostsDiv = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+@media (max-width: 900px) {
+  grid-template-columns: 1fr;
+}
+`;
+
+const ProfilePic = styled.img`
+clip-path: circle(100px at center);
+`;
+
+const ProjectItemDiv = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+@media (max-width: 900px) {
+  grid-template-columns: repeat(2, 1fr);;
+}
+@media (max-width: 500px) {
+  grid-template-columns: 1fr;
+}
+`;
+
+
+export default function Home({ posts, projects }) {
+
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -44,14 +128,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img
+        <HeroDiv>
+        <ProfilePic
           src={require("../images/profile.JPG")}
           alt="Subhash Jha"
           width={200}
           height={200}
-          className="avatar"
         />
-        <br />
+        <InfoDiv>
         <TitleDiv>I am Subhash Jha</TitleDiv>
         <DescDiv>
           Software Developer
@@ -61,6 +145,40 @@ export default function Home() {
             C++ | Javascript | ReactJS | NextJS | WebAssembly | Flutter
           </CodeDiv>
         </DescDiv>
+        </InfoDiv>
+        </HeroDiv>
+        <ProjectDiv>
+          <h3>
+            Projects
+          </h3>
+          <ProjectItemDiv>
+          {projects.filter(
+                (post, index) => index < 6
+              ).map((project, index) => (
+          <ProjectItem project={project} key={index} preview={true} />
+        ))}
+        </ProjectItemDiv>
+          <Link href='/projects'>
+            <MoreBtn className="btn">➞</MoreBtn>
+          </Link>
+        </ProjectDiv>
+        <BlogDiv>
+          <h3>
+            Posts
+          </h3>
+          <PostsDiv>
+            {posts
+              .filter(
+                (post, index) => index < 3
+              )
+              .map((post, index) => (
+                <Post post={post} key={index} preview={true}/>
+              ))}
+          </PostsDiv>
+          <Link href='/blog'>
+            <MoreBtn className="btn">➞</MoreBtn>
+          </Link>
+        </BlogDiv>
         <ShareDiv>
           <a href="mailto:subhashjha.mail@gmail.com">
             <MdEmail size={22} />
@@ -78,4 +196,37 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+
+export async function getStaticProps() {
+  let files = fs.readdirSync(path.join("posts"));
+
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+    const markdownWithMeta = fs.readFileSync(
+      path.join("posts", fileName),
+      "utf-8"
+    );
+    const { data: frontMatter } = matter(markdownWithMeta);
+    return { slug, frontMatter };
+  });
+
+  files = fs.readdirSync(path.join("projects"));
+  const projects = files.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+    const markdownWithMeta = fs.readFileSync(
+      path.join("projects", fileName),
+      "utf-8"
+    );
+    const { data: frontMatter } = matter(markdownWithMeta);
+    return { slug, frontMatter };
+  });
+
+  return {
+    props: {
+      posts: posts.sort(sortByDate),
+      projects: projects.sort(sortByDate),
+    },
+  };
 }

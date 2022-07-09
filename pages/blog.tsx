@@ -36,7 +36,7 @@ function Blog({ posts }) {
             (post, index) => index >= (page - 1) * size && index < page * size
           )
           .map((post, index) => (
-            <Post post={post} key={index} />
+            <Post post={post} key={index} preview={false}/>
           ))}
       </div>
       <Pagination total={posts.length} sizes={[9, 18, 27, 36]} />

@@ -13,8 +13,10 @@ const HeaderDiv = styled.div``;
 const HeaderContainer = styled.div`
     overflow: auto;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: end;
+    gap: 1rem;
+    font-size: 0.8rem;
+    padding-right: 1rem;
     @media (max-width: 35em) {
         z-index: 100;
         position: fixed;
@@ -119,9 +121,10 @@ function Header(props) {
         <Link href='/contact'>
             <a className={router.pathname != "/contact" ? "linkinactive" : ""} onClick={hideNav}> Contact</a>
         </Link>
-        <ToggleMode onClick={props.toggleTheme}><CgDarkMode/></ToggleMode>
         </HeaderContainer>
     </header>;
 }
+
+//<ToggleMode onClick={props.toggleTheme}><CgDarkMode/></ToggleMode>
 
 export default Header;

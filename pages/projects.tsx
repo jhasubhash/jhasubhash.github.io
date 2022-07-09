@@ -29,7 +29,7 @@ function Projects({ projects }) {
       </p>
       <div className="projectbox">
         {projects.map((project, index) => (
-          <ProjectItem project={project} key={index} />
+          <ProjectItem project={project} key={index} preview={false}/>
         ))}
       </div>
       <br />

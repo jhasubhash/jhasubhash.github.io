@@ -24,6 +24,11 @@ const ProjectCardBody = styled.div`
   flex-direction: column;
   width: 100%;
 `;
+const ProjectCardPreviewBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 const ProjectImage = styled.img`
   width: 20%;
@@ -55,30 +60,40 @@ const Tag = styled.div`
   white-space: nowrap;
 `;
 
-function ProjectItem({ project }) {
+const PreviewDisplay = (props) => {
+  return <ProjectCard href={props.project.frontMatter.web_url} target="__blank">
+  <ProjectCardPreviewBody>
+    <ProjectTitle>{props.project.frontMatter.title}</ProjectTitle>
+    <ProjectDesc>{props.project.frontMatter.excerpt}</ProjectDesc>
+    <TagContainer>
+      {props.tags.map((tag, index) => (
+        <Tag key={index}>{tag}</Tag>
+      ))}
+    </TagContainer>
+  </ProjectCardPreviewBody>
+</ProjectCard>
+}
+
+const CompleteDisplay = (props) => {
+  return <ProjectCard href={props.project.frontMatter.web_url} target="__blank">
+    <ProjectImage src={props.project.frontMatter.cover_image} alt=" " />
+    <ProjectCardBody>
+      <ProjectTitle>{props.project.frontMatter.title}</ProjectTitle>
+      <ProjectDesc>{props.project.frontMatter.excerpt}</ProjectDesc>
+      <TagContainer>
+        {props.tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </TagContainer>
+    </ProjectCardBody>
+  </ProjectCard>
+}
+
+function ProjectItem({ project, preview }) {
   const tags = project.frontMatter.tags.length
     ? project.frontMatter.tags.split(",")
     : [];
-  return (
-    <ProjectCard href={project.frontMatter.web_url} target="__blank">
-      <ProjectImage src={project.frontMatter.cover_image} alt=" " />
-      <ProjectCardBody>
-        <ProjectTitle>{project.frontMatter.title}</ProjectTitle>
-        <ProjectDesc>{project.frontMatter.excerpt}</ProjectDesc>
-        <TagContainer>
-          {tags.map((tag, index) => (
-            <Tag key={index}>{tag}</Tag>
-          ))}
-        </TagContainer>
-        {/** 
-        <div style={{display:'flex', justifyContent:'space-between'}}>
-        <a className="btn" style={{borderRadius: '5px'}} href={project.frontMatter.web_url} target="_blank"><code>Check it out</code></a>
-        <a className="btn" style={{borderRadius: '5px'}} href={project.frontMatter.code_url} target="_blank"><code>source_code</code></a>
-        </div>
-        */}
-      </ProjectCardBody>
-    </ProjectCard>
-  );
+  return preview? <PreviewDisplay project={project} tags={tags}/> : <CompleteDisplay project={project} tags={tags}/>;
 }
 
 export default ProjectItem;
