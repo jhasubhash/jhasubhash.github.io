@@ -24,7 +24,6 @@ function MyApp({ Component, pageProps }) {
   return <Wrapper>
   <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
   <GlobalStyles />
-  <Header toggleTheme={toggleTheme}/>
   <main className='container'>
   <Component {...pageProps} />
   </main>

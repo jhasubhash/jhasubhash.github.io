@@ -78,40 +78,31 @@ padding-top:2rem;
   gap: 2rem;
 `;
 
-const MoreBtn = styled.a`
-  font-size: 0.7rem;
-  width: fit-content;
-  margin-left: auto;
-  border-radius: 10%;
-`;
-
-const PostsDiv = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 1rem;
-margin-top: 1rem;
-margin-bottom: 1rem;
+const AboutMeDiv = styled.div`
+padding: 2rem;
+border-radius: 10px;
+font-size: 0.9rem;
+box-shadow: 0 4px 8px 0
+  ${({ theme }) => getShadowColor(theme, 0.7, theme.text)};
+display: flex;
+justify-content: space-between;
+width: 80%;
 @media (max-width: 900px) {
-  grid-template-columns: 1fr;
+  padding: 1rem;
+  width: 100%;
 }
 `;
+
 
 const ProfilePic = styled.img`
 clip-path: circle(100px at center);
 `;
 
-const ProjectItemDiv = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 1rem;
-margin-top: 1rem;
-margin-bottom: 1rem;
-@media (max-width: 900px) {
-  grid-template-columns: repeat(2, 1fr);;
-}
-@media (max-width: 500px) {
-  grid-template-columns: 1fr;
-}
+const LinkDiv = styled.div`
+background-color: ${({ theme }) => getShadowColor(theme, 0.55, theme.text)};
+border-radius: 10px;
+padding: 0.2rem 1rem 0.2rem 1rem;
+margin-top: 3rem;
 `;
 
 
@@ -145,40 +136,32 @@ export default function Home({ posts, projects }) {
             C++ | Javascript | ReactJS | NextJS | WebAssembly | Flutter
           </CodeDiv>
         </DescDiv>
+        <br />
+        <LinkDiv>
+        <a href='/docs/subhash_jha_resume.pdf' download>
+            Download Resume
+        </a>
+        </LinkDiv>
         </InfoDiv>
         </HeroDiv>
-        <ProjectDiv>
-          <h3>
-            Projects
-          </h3>
-          <ProjectItemDiv>
-          {projects.filter(
-                (post, index) => index < 6
-              ).map((project, index) => (
-          <ProjectItem project={project} key={index} preview={true} />
-        ))}
-        </ProjectItemDiv>
-          <Link href='/projects'>
-            <MoreBtn className="btn">➞</MoreBtn>
-          </Link>
-        </ProjectDiv>
-        <BlogDiv>
-          <h3>
-            Posts
-          </h3>
-          <PostsDiv>
-            {posts
-              .filter(
-                (post, index) => index < 3
-              )
-              .map((post, index) => (
-                <Post post={post} key={index} preview={true}/>
-              ))}
-          </PostsDiv>
-          <Link href='/blog'>
-            <MoreBtn className="btn">➞</MoreBtn>
-          </Link>
-        </BlogDiv>
+        <AboutMeDiv>
+          <div>
+          <b>Let me introduce myself ...</b>
+        <br/>
+        <br/>
+        I am a software developer based out of Bangalore, India. I have a Masters degree in Computer Science from IIT Madras. I have been working in software industry since 2015. Programming languages I have experience in are C++ and Javascript. I also have working knowledge of dart since I used flutter from few of my personal projects.
+        <br /> <br />
+        I am currently working as <b>Computer Scientist II @ Adobe Systems </b>.
+        <br /> <br />
+        In my spare time I like reading and painting. Feel free to drop me an email or connect with me on linkedin / twitter.
+        </div>
+        </AboutMeDiv>
+        <br/>
+       <LinkDiv>
+          <a href="https://pseudocoder.in" target="__blank">
+          Checkout my work !!!
+          </a>
+       </LinkDiv>
         <ShareDiv>
           <a href="mailto:subhashjha.mail@gmail.com">
             <MdEmail size={22} />
