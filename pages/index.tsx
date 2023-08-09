@@ -149,9 +149,9 @@ export default function Home({ posts, projects }) {
           <b>Let me introduce myself ...</b>
         <br/>
         <br/>
-        I am a software developer based out of Bangalore, India. I have a Masters degree in Computer Science from IIT Madras. I have been working in software industry since 2015. Programming languages I have experience in are C++ and Javascript. I also have working knowledge of dart since I used flutter for some of my personal projects.
+        I am a software developer based out of Bangalore, India. I have a Masters degree in Computer Science from IIT Madras. I have been working in software industry since 2015. I am familiar with C++ and Javascript. I also have working knowledge of dart since I used flutter for some of my personal projects.
         <br /> <br />
-        I am currently working as <b>Computer Scientist II @ Adobe Systems </b>.
+        I am currently working as <b>Senior Computer Scientist @ Adobe Systems </b>.
         <br /> <br />
         In my spare time I like reading and painting. Feel free to drop me an email or connect with me on linkedin / twitter.
         </div>
